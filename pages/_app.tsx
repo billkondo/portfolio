@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, Grid } from '@material-ui/core';
 import Head from 'next/head';
 
 import 'styles/globals.css';
@@ -19,7 +19,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <CssBaseline></CssBaseline>
-      <div className={styles.container}>
+      <Grid
+        container
+        className={styles.container}
+        direction="column"
+        alignItems="center"
+      >
         <Head>
           <title>{APP_NAME}</title>
 
@@ -29,9 +34,17 @@ function MyApp({ Component, pageProps }) {
           />
         </Head>
 
-        <main className={styles.main}>
+        <Grid
+          item
+          container
+          className={styles.main}
+          xs={12}
+          sm={10}
+          md={8}
+          style={{ flexGrow: 1 }}
+        >
           <Component {...pageProps} />
-        </main>
+        </Grid>
 
         <footer className={styles.footer}>
           <a
@@ -43,7 +56,7 @@ function MyApp({ Component, pageProps }) {
             <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
           </a>
         </footer>
-      </div>
+      </Grid>
     </React.Fragment>
   );
 }
