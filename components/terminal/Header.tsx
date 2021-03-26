@@ -1,11 +1,4 @@
-import {
-  Grid,
-  Icon,
-  Paper,
-  Typography,
-  colors,
-  makeStyles,
-} from '@material-ui/core';
+import { Grid, Icon, Typography, colors, makeStyles } from '@material-ui/core';
 import { Folder } from '@material-ui/icons';
 
 const useStyles = makeStyles({
@@ -13,22 +6,24 @@ const useStyles = makeStyles({
     padding: 8,
     position: 'relative',
     borderRadius: '8px 8px 0 0',
-    backgroundColor: colors.yellow[100],
+    backgroundColor: colors.grey[900],
   },
   circle: {
     width: 16,
     height: 16,
     borderRadius: 8,
+    boxShadow: 'inset -3px -3px 10px 0px rgba(0,0,0,0.40)',
   },
   titleSpace: {
     position: 'absolute',
     width: '100%',
   },
   folder: {
-    color: colors.blue[900],
+    color: colors.blue[200],
   },
   title: {
     fontFamily: 'Varela Round, sans-serif',
+    color: colors.grey[200],
   },
 });
 
@@ -38,32 +33,32 @@ const Header = () => {
   return (
     <Grid container style={{ height: 32 }} className={classes.root}>
       <Grid item>
-        <Paper
+        <div
           className={classes.circle}
           style={{
-            backgroundColor: colors.red[900],
+            backgroundColor: colors.red[200],
           }}
-        ></Paper>
+        ></div>
       </Grid>
 
       <Grid item>
-        <Paper
+        <div
           className={classes.circle}
           style={{
-            backgroundColor: colors.yellow[900],
+            backgroundColor: colors.yellow[200],
             marginLeft: 8,
           }}
-        ></Paper>
+        ></div>
       </Grid>
 
       <Grid item>
-        <Paper
+        <div
           className={classes.circle}
           style={{
-            backgroundColor: colors.green[900],
+            backgroundColor: colors.green[200],
             marginLeft: 8,
           }}
-        ></Paper>
+        ></div>
       </Grid>
 
       <div className={classes.titleSpace}>
