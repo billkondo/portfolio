@@ -1,4 +1,4 @@
-import { Paper, Grid, Divider, makeStyles } from '@material-ui/core';
+import { Paper, Grid, Divider, colors, makeStyles } from '@material-ui/core';
 
 import Header from './Header';
 import Body from './Body';
@@ -14,14 +14,14 @@ const Terminal = () => {
   const classes = useStyles();
 
   return (
-    <Paper elevation={8} className={classes.root}>
+    <Paper elevation={4} className={classes.root}>
       <Grid container direction="column">
         <Grid item container>
           <Header></Header>
         </Grid>
 
         <Grid item>
-          <Divider></Divider>
+          <Divider style={{ backgroundColor: colors.grey[800] }}></Divider>
         </Grid>
 
         <Grid item container>

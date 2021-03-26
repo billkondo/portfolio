@@ -1,17 +1,18 @@
 import { Grid, colors, makeStyles } from '@material-ui/core';
 
-import NAME from 'config/name';
+import Tree from 'components/tree/Tree';
 
-const black87 = 'rgba(0, 0, 0, 0.87)';
+const black = '#121212';
 
 const useStyles = makeStyles({
   root: {
     padding: '8px 16px 8px 16px',
     borderRadius: '0 0 8px 8px',
+    backgroundColor: black,
   },
   name: {
     fontFamily: 'VT323',
-    color: black87,
+    color: colors.grey[200],
   },
 });
 
@@ -21,7 +22,17 @@ const Body = () => {
   return (
     <Grid container direction="column" className={classes.root}>
       <Grid item container>
-        <h1 className={classes.name}>{NAME}</h1>
+        <Tree
+          node={{
+            label: 'Projects',
+            children: [
+              {
+                label: 'Recipes Share',
+                children: [],
+              },
+            ],
+          }}
+        ></Tree>
       </Grid>
     </Grid>
   );
