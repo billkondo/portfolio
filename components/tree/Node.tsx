@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     fontSize: '24px',
   },
   item: {
-    marginLeft: 8,
     flexGrow: 1,
   },
 });
@@ -31,15 +30,12 @@ const Node: FunctionComponent<Props> = ({ label, renderSubTree }) => {
   return (
     <Grid container direction="column">
       <Grid item container className={classes.root} alignItems="center">
-        <Grid item>
-          <b>
-            [<Sign open={open}></Sign>]
-          </b>
-        </Grid>
-
         <Grid item className={classes.item}>
           <Button fullWidth className={button} onClick={_onClick}>
-            <b>{label}</b>
+            <b>
+              [<Sign open={open}></Sign>]{' '}
+              <span style={{ marginLeft: 8 }}>{label}</span>
+            </b>
           </Button>
         </Grid>
       </Grid>
