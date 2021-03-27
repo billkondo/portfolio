@@ -10,10 +10,6 @@ const useStyles = makeStyles({
     borderRadius: '0 0 8px 8px',
     backgroundColor: black,
   },
-  name: {
-    fontFamily: 'VT323',
-    color: colors.grey[200],
-  },
 });
 
 const Body = () => {
