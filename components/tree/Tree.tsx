@@ -41,7 +41,7 @@ const Tree: FunctionComponent<Props> = ({ node, padding = 0 }) => {
   if (!node.children.length)
     return (
       <div className={classes.tree}>
-        <Leaf label={node.label}></Leaf>
+        <Leaf label={node.label} onClick={node.onClick}></Leaf>
       </div>
     );
 

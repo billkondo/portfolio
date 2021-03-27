@@ -5,13 +5,14 @@ import useButtonStyles from './styles/useButtonStyles';
 
 type Props = {
   label: string;
+  onClick: () => void;
 };
 
-const Leaf: FunctionComponent<Props> = ({ label }) => {
+const Leaf: FunctionComponent<Props> = ({ label, onClick }) => {
   const { button } = useButtonStyles();
 
   return (
-    <Button fullWidth className={button}>
+    <Button fullWidth className={button} onClick={onClick}>
       <b>
         <i>{label}</i>
       </b>

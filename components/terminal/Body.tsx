@@ -25,6 +25,14 @@ const Body = () => {
               {
                 label: 'Recipes Share',
                 children: [],
+                onClick: () => {
+                  const doc = document.getElementById('recipes-share');
+
+                  window.scrollTo({
+                    behavior: 'smooth',
+                    top: doc.offsetTop,
+                  });
+                },
               },
             ],
           }}
