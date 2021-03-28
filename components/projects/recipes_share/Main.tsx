@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
+import { Carousel } from 'react-responsive-carousel';
+
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Header from './Header';
 import Options from './Options';
@@ -15,6 +18,9 @@ const useStyles = makeStyles({
   },
   content: {
     marginTop: 48,
+  },
+  carousel: {
+    width: '100%',
   },
 });
 
@@ -36,12 +42,22 @@ const Main = () => {
       <Grid item container className={classes.options}>
         <Options
           selectedID={selectedID}
-          onClick={(id) => setSelectedID(id)}
+          onClick={(id: string) => setSelectedID(id)}
         ></Options>
       </Grid>
 
       <Grid item container className={classes.content}>
-        {selectedID === 'about' ? <About></About> : <Technical></Technical>}
+        <Carousel
+          showThumbs={false}
+          showArrows={false}
+          showIndicators={false}
+          showStatus={false}
+          selectedItem={selectedID === 'about' ? 0 : 1}
+          className={classes.carousel}
+        >
+          <About></About>
+          <Technical></Technical>
+        </Carousel>
       </Grid>
     </Grid>
   );
