@@ -48,12 +48,13 @@ const Main = () => {
 
       <Grid item container className={classes.content}>
         <Carousel
+          className={classes.carousel}
+          selectedItem={selectedID === 'about' ? 0 : 1}
           showThumbs={false}
           showArrows={false}
           showIndicators={false}
           showStatus={false}
-          selectedItem={selectedID === 'about' ? 0 : 1}
-          className={classes.carousel}
+          swipeable={false}
         >
           <About></About>
           <Technical></Technical>
