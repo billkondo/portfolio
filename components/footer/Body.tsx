@@ -44,6 +44,22 @@ const Body = () => {
               Material UI icon by <b>Icons8</b>
             </a>
           </div>
+
+          <div style={{ marginTop: 8, display: 'flex' }}>
+            <img
+              src="https://img.icons8.com/color/48/000000/firebase.png"
+              style={{ height: 24, width: 24 }}
+            />
+
+            <a
+              href="https://icons8.com/icon/62452/firebase"
+              target="_blank"
+              className={classes.link}
+              style={{ marginLeft: 16 }}
+            >
+              Firebase icon by <b>Icons8</b>
+            </a>
+          </div>
         </div>
       </Grid>
     </Grid>
