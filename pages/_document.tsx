@@ -7,6 +7,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <script
+            src="https://kit.fontawesome.com/eb0fe5687d.js"
+            crossOrigin="anonymous"
+          ></script>
+
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             rel="stylesheet"
