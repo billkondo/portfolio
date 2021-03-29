@@ -29,7 +29,7 @@ const Body = () => {
             </Typography>
           </div>
 
-          <div style={{ marginTop: 8, display: 'flex' }}>
+          <div style={{ marginTop: 16, display: 'flex' }}>
             <img
               src="https://img.icons8.com/color/50/000000/material-ui.png"
               style={{ height: 24, width: 24 }}
