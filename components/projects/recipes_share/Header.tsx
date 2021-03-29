@@ -1,6 +1,4 @@
 import { Grid, Typography, colors, makeStyles } from '@material-ui/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 import useIsUpSM from 'hooks/useIsUpSM';
 import ProjectURL from './ProjectURL';
@@ -49,10 +47,7 @@ const Header = () => {
 
       {isUpSM && (
         <Grid item>
-          <FontAwesomeIcon
-            className={classes.icon}
-            icon={faBook}
-          ></FontAwesomeIcon>
+          <i className={`fas fa-book ${classes.icon}`}></i>
         </Grid>
       )}
     </Grid>

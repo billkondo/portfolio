@@ -1,7 +1,5 @@
 import { Grid, Icon, colors, makeStyles } from '@material-ui/core';
 import { Bookmark, ThumbUpAlt, Create } from '@material-ui/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 import Title from 'components/typography/Title';
 import Description from 'components/typography/Description';
@@ -63,10 +61,10 @@ const About = () => {
           className={classes.iconItem}
         >
           <Grid item>
-            <FontAwesomeIcon
-              icon={faTrophy}
+            <i
+              class="fas fa-trophy"
               style={{ fontSize: 16, color: colors.red[400] }}
-            ></FontAwesomeIcon>
+            ></i>
           </Grid>
 
           <Grid item className={classes.text}>
