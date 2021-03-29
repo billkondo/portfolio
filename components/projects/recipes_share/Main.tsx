@@ -7,7 +7,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Header from './Header';
 import Options from './Options';
 import About from './About';
-import Technical from './Technical';
+import Technical from './technical/Technical';
 
 const useStyles = makeStyles({
   root: {
