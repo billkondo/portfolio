@@ -14,7 +14,7 @@ const Technical = () => {
           </SubTitle>
         </Grid>
 
-        <Grid item container direction="column" style={{ marginTop: 16 }}>
+        <Grid item container direction="column" style={{ marginTop: 24 }}>
           <Grid item container justify="center">
             <Technology
               url="https://reactjs.org/"
@@ -29,7 +29,7 @@ const Technical = () => {
             ></Technology>
           </Grid>
 
-          <Grid item container justify="center" style={{ marginTop: 8 }}>
+          <Grid item container justify="center" style={{ marginTop: 20 }}>
             <Technology
               url="https://material-ui.com/"
               icon={
@@ -51,7 +51,7 @@ const Technical = () => {
           </SubTitle>
         </Grid>
 
-        <Grid item container direction="column" style={{ marginTop: 16 }}>
+        <Grid item container direction="column" style={{ marginTop: 24 }}>
           <Grid item container justify="center">
             <Technology
               url="https://firebase.google.com/"
@@ -65,17 +65,41 @@ const Technical = () => {
             ></Technology>
           </Grid>
 
-          <Grid item container justify="center" style={{ marginTop: 8 }}>
-            <Technology
-              url="https://nodejs.org/en/"
-              icon={
-                <i
-                  className="fab fa-node-js"
-                  style={{ fontSize: 24, color: '#026e00' }}
-                ></i>
-              }
-              text="Node JS"
-            ></Technology>
+          <Grid item container direction="column" style={{ marginTop: 20 }}>
+            <Grid item container justify="center">
+              <Technology
+                url="https://firebase.google.com/docs/functions"
+                icon={
+                  <img
+                    src="/CloudFunctions.svg"
+                    style={{ height: 24, width: 24 }}
+                  />
+                }
+                text="Cloud Functions for Firebase"
+              ></Technology>
+            </Grid>
+
+            <Grid item container justify="center">
+              <i
+                className="fas fa-plus"
+                style={{ color: 'rgba(0,0,0,0.40)', fontSize: 16 }}
+                aria-hidden
+              ></i>
+            </Grid>
+
+            <Grid item container justify="center">
+              <Technology
+                url="https://nodejs.org/en/"
+                icon={
+                  <i
+                    className="fab fa-node-js"
+                    style={{ fontSize: 24, color: '#026e00' }}
+                    aria-hidden
+                  ></i>
+                }
+                text="Node JS"
+              ></Technology>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
