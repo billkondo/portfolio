@@ -62,8 +62,9 @@ const About = () => {
         >
           <Grid item>
             <i
-              class="fas fa-trophy"
+              className="fas fa-trophy"
               style={{ fontSize: 16, color: colors.red[400] }}
+              aria-hidden
             ></i>
           </Grid>
 

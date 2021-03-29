@@ -47,7 +47,7 @@ const Header = () => {
 
       {isUpSM && (
         <Grid item>
-          <i className={`fas fa-book ${classes.icon}`}></i>
+          <i className={`fas fa-book ${classes.icon}`} aria-hidden></i>
         </Grid>
       )}
     </Grid>
