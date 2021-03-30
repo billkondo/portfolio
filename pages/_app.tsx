@@ -27,6 +27,11 @@ function MyApp({ Component, pageProps }) {
           <title>{APP_NAME}</title>
 
           <meta
+            name="description"
+            content={`${APP_NAME} | Projects | Contacts`}
+          ></meta>
+
+          <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
