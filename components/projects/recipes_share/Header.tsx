@@ -31,7 +31,11 @@ const Header = () => {
 
   return (
     <Grid container alignItems="center" direction="row-reverse">
-      <Grid item className={classes.urlItem}>
+      <Grid
+        item
+        className={classes.urlItem}
+        style={{ alignSelf: 'flex-start' }}
+      >
         <ProjectURL></ProjectURL>
       </Grid>
 

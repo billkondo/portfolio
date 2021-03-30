@@ -5,7 +5,7 @@ import URLs from 'config/urls';
 
 const StyledButton = withStyles({
   root: {
-    fontSize: 24,
+    fontSize: '1.25rem',
     borderRadius: 8,
     color: colors.red[900],
     fontFamily: 'Varela Round, sans-serif',
@@ -14,7 +14,7 @@ const StyledButton = withStyles({
     },
     '& .MuiButton-iconSizeMedium': {
       color: colors.red[900],
-      fontSize: 32,
+      fontSize: '2.00rem',
       '& > *:first-child': {
         fontSize: 'inherit',
       },
