@@ -80,11 +80,15 @@ const Technical = () => {
             </Grid>
 
             <Grid item container justify="center">
-              <i
-                className="fas fa-plus"
-                style={{ color: 'rgba(0,0,0,0.40)', fontSize: 16 }}
-                aria-hidden
-              ></i>
+              <span
+                style={{
+                  color: 'rgba(0,0,0,0.87)',
+                  fontSize: 24,
+                  fontFamily: 'Delius, cursive',
+                }}
+              >
+                +
+              </span>
             </Grid>
 
             <Grid item container justify="center">
