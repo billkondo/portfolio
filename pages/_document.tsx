@@ -7,6 +7,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta name="theme-color" content="#212121" />
+
           <script
             src="https://kit.fontawesome.com/eb0fe5687d.js"
             crossOrigin="anonymous"
