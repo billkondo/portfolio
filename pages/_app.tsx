@@ -5,7 +5,9 @@ import Head from 'next/head';
 import 'styles/globals.css';
 import styles from 'styles/Home.module.css';
 
+import NAME from 'config/name';
 import APP_NAME from 'config/app_name';
+
 import Footer from 'components/footer/Footer';
 
 function MyApp({ Component, pageProps }) {
@@ -28,6 +30,10 @@ function MyApp({ Component, pageProps }) {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
+
+          <meta name="author" content={`${NAME}`}></meta>
+          <meta name="keywords" content="Portfolio, William, Hideki, Kondo" />
+          <link rel="canonical" href="https://www.billkondo.com/" />
         </Head>
 
         <main className={styles.main}>
