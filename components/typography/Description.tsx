@@ -5,6 +5,7 @@ const useStyles = makeStyles({
   root: {
     fontFamily: 'Delius, cursive',
     lineHeight: 1.5,
+    fontSize: '1.25rem',
   },
 });
 
@@ -13,7 +14,7 @@ const Description: FunctionComponent<Props> = ({ children }) => {
   const classes = useStyles();
 
   return (
-    <Typography variant="h6" className={classes.root}>
+    <Typography variant="body1" className={classes.root}>
       {children}
     </Typography>
   );

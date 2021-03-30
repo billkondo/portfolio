@@ -37,7 +37,9 @@ const About = () => {
           </Grid>
 
           <Grid item className={classes.text}>
-            <Description>Recipes bookmarking</Description>
+            <Description>
+              Recipes <b>bookmarking</b>
+            </Description>
           </Grid>
         </Grid>
 
@@ -49,7 +51,9 @@ const About = () => {
           </Grid>
 
           <Grid item className={classes.text}>
-            <Description>Recipes liking</Description>
+            <Description>
+              Recipes <b>liking</b>
+            </Description>
           </Grid>
         </Grid>
 
@@ -69,7 +73,9 @@ const About = () => {
           </Grid>
 
           <Grid item className={classes.text}>
-            <Description>Most rated recipes</Description>
+            <Description>
+              Most <b>rated</b> recipes
+            </Description>
           </Grid>
         </Grid>
 
