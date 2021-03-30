@@ -8,9 +8,13 @@ import styles from 'styles/Home.module.css';
 import NAME from 'config/name';
 import APP_NAME from 'config/app_name';
 
+import useApp from 'hooks/useApp';
+
 import Footer from 'components/footer/Footer';
 
 function MyApp({ Component, pageProps }) {
+  useApp();
+
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
 
