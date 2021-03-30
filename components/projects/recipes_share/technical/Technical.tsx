@@ -2,6 +2,10 @@ import { Grid } from '@material-ui/core';
 
 import SubTitle from 'components/typography/Subtitle';
 
+import CloudFunctionsIcon from 'components/icons/CloudFunctionsIcon';
+import FirebaseIcon from 'components/icons/FirebaseIcon';
+import MaterialUIIcon from 'components/icons/MaterialUIIcon';
+
 import Technology from './Technology';
 
 const Technical = () => {
@@ -32,12 +36,7 @@ const Technical = () => {
           <Grid item container justify="center" style={{ marginTop: 20 }}>
             <Technology
               url="https://material-ui.com/"
-              icon={
-                <img
-                  src="https://img.icons8.com/color/50/000000/material-ui.png"
-                  style={{ height: 24, width: 24 }}
-                />
-              }
+              icon={<MaterialUIIcon></MaterialUIIcon>}
               text="Material UI"
             ></Technology>
           </Grid>
@@ -55,12 +54,7 @@ const Technical = () => {
           <Grid item container justify="center">
             <Technology
               url="https://firebase.google.com/"
-              icon={
-                <img
-                  src="https://img.icons8.com/color/48/000000/firebase.png"
-                  style={{ height: 24, width: 24 }}
-                />
-              }
+              icon={<FirebaseIcon></FirebaseIcon>}
               text="Firebase"
             ></Technology>
           </Grid>
@@ -69,12 +63,7 @@ const Technical = () => {
             <Grid item container justify="center">
               <Technology
                 url="https://firebase.google.com/docs/functions"
-                icon={
-                  <img
-                    src="/CloudFunctions.svg"
-                    style={{ height: 24, width: 24 }}
-                  />
-                }
+                icon={<CloudFunctionsIcon></CloudFunctionsIcon>}
                 text="Cloud Functions for Firebase"
               ></Technology>
             </Grid>

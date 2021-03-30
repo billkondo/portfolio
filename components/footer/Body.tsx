@@ -1,5 +1,8 @@
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 
+import FirebaseIcon from 'components/icons/FirebaseIcon';
+import MaterialUIIcon from 'components/icons/MaterialUIIcon';
+
 const useStyles = makeStyles({
   title: {
     fontFamily: 'Varela Round, sans-serif',
@@ -30,10 +33,7 @@ const Body = () => {
           </div>
 
           <div style={{ marginTop: 16, display: 'flex' }}>
-            <img
-              src="https://img.icons8.com/color/50/000000/material-ui.png"
-              style={{ height: 24, width: 24 }}
-            />
+            <MaterialUIIcon></MaterialUIIcon>
 
             <a
               className={classes.link}
@@ -47,10 +47,7 @@ const Body = () => {
           </div>
 
           <div style={{ marginTop: 8, display: 'flex' }}>
-            <img
-              src="https://img.icons8.com/color/48/000000/firebase.png"
-              style={{ height: 24, width: 24 }}
-            />
+            <FirebaseIcon></FirebaseIcon>
 
             <a
               className={classes.link}
