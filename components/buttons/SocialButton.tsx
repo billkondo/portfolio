@@ -38,7 +38,12 @@ const SocialButton: FunctionComponent<Props> = ({
   const classes = useStyles({ color, backgroundColor });
 
   return (
-    <a href={link} target="_blank" style={{ textDecoration: 'none' }}>
+    <a
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      style={{ textDecoration: 'none' }}
+    >
       <Button className={classes.button}>
         <Grid container alignItems="center">
           <Grid item style={{ paddingTop: 8, marginLeft: 8 }}>

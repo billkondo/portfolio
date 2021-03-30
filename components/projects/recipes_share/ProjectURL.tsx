@@ -24,7 +24,7 @@ const StyledButton = withStyles({
 
 const ProjectURL = () => {
   return (
-    <a href={URLs.Projects.RecipesShare} target="_blank">
+    <a href={URLs.Projects.RecipesShare} target="_blank" rel="noreferrer">
       <StyledButton startIcon={<Link></Link>}>
         <b>URL</b>
       </StyledButton>

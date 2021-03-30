@@ -23,7 +23,7 @@ const Technology: FunctionComponent<Props> = ({ url, icon, text }) => {
   const classes = useStyles();
 
   return (
-    <a href={url} target="_blank" className={classes.link}>
+    <a className={classes.link} href={url} target="_blank" rel="noreferrer">
       {icon}
 
       <div className={classes.text}>

@@ -36,9 +36,10 @@ const Body = () => {
             />
 
             <a
+              className={classes.link}
               href="https://icons8.com/icon/gFw7X5Tbl3ss/material-ui"
               target="_blank"
-              className={classes.link}
+              rel="noreferrer"
               style={{ marginLeft: 16 }}
             >
               Material UI icon by <b>Icons8</b>
@@ -52,9 +53,10 @@ const Body = () => {
             />
 
             <a
+              className={classes.link}
               href="https://icons8.com/icon/62452/firebase"
               target="_blank"
-              className={classes.link}
+              rel="noreferrer"
               style={{ marginLeft: 16 }}
             >
               Firebase icon by <b>Icons8</b>
