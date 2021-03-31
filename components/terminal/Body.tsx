@@ -1,6 +1,8 @@
-import { Grid, colors, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 
 import Root from 'components/tree/Root';
+
+import scrollToElement from 'utils/scrollToElement';
 
 const black = '#121212';
 
@@ -26,23 +28,14 @@ const Body = () => {
                 {
                   label: 'Recipes Share',
                   children: [],
-                  onClick: () => {
-                    const doc = document.getElementById('recipes-share');
-
-                    window.scrollTo({
-                      behavior: 'smooth',
-                      top: doc.offsetTop,
-                    });
-                  },
+                  onClick: () => scrollToElement(window, 'recipes-share'),
                 },
               ],
             },
             {
               label: 'Contact me',
               children: [],
-              onClick: () => {
-                console.log('I was clicked');
-              },
+              onClick: () => scrollToElement(window, 'contact-me'),
             },
           ]}
         ></Root>
