@@ -1,6 +1,6 @@
 import { Grid, colors, makeStyles } from '@material-ui/core';
 
-import Tree from 'components/tree/Tree';
+import Root from 'components/tree/Root';
 
 const black = '#121212';
 
@@ -18,25 +18,34 @@ const Body = () => {
   return (
     <Grid container direction="column" className={classes.root}>
       <Grid item container>
-        <Tree
-          node={{
-            label: 'Projects',
-            children: [
-              {
-                label: 'Recipes Share',
-                children: [],
-                onClick: () => {
-                  const doc = document.getElementById('recipes-share');
+        <Root
+          nodes={[
+            {
+              label: 'Projects',
+              children: [
+                {
+                  label: 'Recipes Share',
+                  children: [],
+                  onClick: () => {
+                    const doc = document.getElementById('recipes-share');
 
-                  window.scrollTo({
-                    behavior: 'smooth',
-                    top: doc.offsetTop,
-                  });
+                    window.scrollTo({
+                      behavior: 'smooth',
+                      top: doc.offsetTop,
+                    });
+                  },
                 },
+              ],
+            },
+            {
+              label: 'Contact me',
+              children: [],
+              onClick: () => {
+                console.log('I was clicked');
               },
-            ],
-          }}
-        ></Tree>
+            },
+          ]}
+        ></Root>
       </Grid>
     </Grid>
   );
