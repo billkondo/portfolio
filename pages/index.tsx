@@ -58,11 +58,13 @@ export default function Home() {
           id="contact-me"
           item
           container
-          direction="column"
           className={classes.root}
+          justify="center"
           style={{ padding: '1.5rem 0' }}
         >
-          <ContactMe></ContactMe>
+          <Grid item container xs={12} sm={10} md={6}>
+            <ContactMe></ContactMe>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
