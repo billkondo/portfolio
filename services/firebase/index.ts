@@ -1,10 +1,10 @@
 import Firebase from 'firebase/app';
 
-import firebaseConfig from 'config/firebase_config.json';
+import FirebaseConfig from 'config/firebase_config';
 
 import 'firebase/analytics';
 
 export const initFirebase = () => {
-  Firebase.initializeApp(firebaseConfig);
+  Firebase.initializeApp(FirebaseConfig);
   Firebase.analytics();
 };
