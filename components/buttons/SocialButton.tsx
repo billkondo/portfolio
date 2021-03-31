@@ -6,7 +6,7 @@ type StyleProps = {
   backgroundColor: string;
 };
 const useStyles = makeStyles({
-  button: {
+  root: {
     fontSize: 24,
     textTransform: 'none',
     fontFamily: 'Varela Round, sans-serif',
@@ -15,9 +15,7 @@ const useStyles = makeStyles({
       backgroundColor: (props: StyleProps) => props.backgroundColor,
     },
     borderRadius: '8px',
-  },
-  icon: {
-    fontSize: 24,
+    padding: 8,
   },
 });
 
@@ -44,17 +42,15 @@ const SocialButton: FunctionComponent<Props> = ({
       rel="noreferrer"
       style={{ textDecoration: 'none' }}
     >
-      <Button className={classes.button}>
-        <Grid container alignItems="center">
-          <Grid item style={{ paddingTop: 8, marginLeft: 8 }}>
-            <Icon>{icon}</Icon>
-          </Grid>
-
-          <Grid item style={{ marginLeft: 12, marginRight: 8 }}>
-            <b>{label}</b>
-          </Grid>
+      <Grid className={classes.root} container direction="column">
+        <Grid item container justify="center">
+          <Icon style={{ fontSize: 32 }}>{icon}</Icon>
         </Grid>
-      </Button>
+
+        <Grid item container justify="center" style={{ marginTop: 8 }}>
+          <b>{label}</b>
+        </Grid>
+      </Grid>
     </a>
   );
 };

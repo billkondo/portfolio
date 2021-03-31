@@ -10,9 +10,6 @@ import About from './About';
 import Technical from './technical/Technical';
 
 const useStyles = makeStyles({
-  root: {
-    paddingTop: 8,
-  },
   options: {
     marginTop: 24,
   },
@@ -29,12 +26,7 @@ const Main = () => {
   const classes = useStyles();
 
   return (
-    <Grid
-      container
-      direction="column"
-      id="recipes-share"
-      className={classes.root}
-    >
+    <Grid container direction="column">
       <Grid item container>
         <Header></Header>
       </Grid>

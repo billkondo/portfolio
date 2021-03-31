@@ -10,7 +10,7 @@ const LinkedInButton = () => {
     <SocialButton
       backgroundColor={colors.blue[50]}
       color={colors.blue[900]}
-      icon={<LinkedIn></LinkedIn>}
+      icon={<LinkedIn fontSize="inherit"></LinkedIn>}
       label={'LinkedIn'}
       link={URLs.LinkedIn}
     ></SocialButton>

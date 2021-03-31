@@ -10,7 +10,7 @@ const GitHubButton = () => {
     <SocialButton
       color={colors.grey[900]}
       backgroundColor={colors.grey[200]}
-      icon={<GitHub></GitHub>}
+      icon={<GitHub fontSize="inherit"></GitHub>}
       label="GitHub"
       link={URLs.GitHub}
     ></SocialButton>

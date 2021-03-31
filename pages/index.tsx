@@ -8,7 +8,7 @@ import RecipesShare from 'components/projects/recipes_share/Main';
 
 const useStyles = makeStyles({
   root: {
-    height: '100vh',
+    minHeight: '100vh',
   },
 });
 
@@ -18,25 +18,38 @@ export default function Home() {
   return (
     <Grid container justify="center">
       <Grid item container direction="column" xs={12} sm={10} md={8}>
-        <Grid item container direction="column" className={classes.root}>
+        <Grid
+          item
+          container
+          direction="column"
+          className={classes.root}
+          style={{ padding: '4rem 0' }}
+        >
           <Grid item container>
             <Terminal></Terminal>
           </Grid>
 
-          <Grid item container style={{ marginTop: 24 }} justify="flex-end">
+          <Grid item container style={{ flex: 1 }}></Grid>
+
+          <Grid item container justify="center" style={{ marginTop: 24 }}>
             <Grid item>
               <GithubButton></GithubButton>
             </Grid>
-          </Grid>
 
-          <Grid item container justify="flex-end">
-            <Grid item>
+            <Grid item style={{ marginLeft: 40 }}>
               <LinkedInButton></LinkedInButton>
             </Grid>
           </Grid>
         </Grid>
 
-        <Grid item container direction="column" className={classes.root}>
+        <Grid
+          id="recipes-share"
+          item
+          container
+          direction="column"
+          className={classes.root}
+          style={{ padding: '1.5rem 0' }}
+        >
           <RecipesShare></RecipesShare>
         </Grid>
       </Grid>
