@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, makeStyles, colors } from '@material-ui/core';
+import { SnackbarProvider } from 'notistack';
 import Head from 'next/head';
 
 import 'styles/globals.css';
@@ -12,8 +13,20 @@ import useApp from 'hooks/useApp';
 
 import Footer from 'components/footer/Footer';
 
+const useStyles = makeStyles({
+  success: {
+    backgroundColor: `${colors.green[900]} !important`,
+    color: `${colors.grey[200]} !important`,
+  },
+  error: {
+    backgroundColor: `${colors.red[900]} !important`,
+    color: `${colors.grey[200]} !important`,
+  },
+});
+
 function MyApp({ Component, pageProps }) {
   useApp();
+  const classes = useStyles();
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -46,7 +59,15 @@ function MyApp({ Component, pageProps }) {
         </Head>
 
         <main className={styles.main}>
-          <Component {...pageProps} />
+          <SnackbarProvider
+            maxSnack={1}
+            classes={{
+              variantSuccess: classes.success,
+              variantError: classes.error,
+            }}
+          >
+            <Component {...pageProps} />
+          </SnackbarProvider>
         </main>
 
         <Footer></Footer>

@@ -1,4 +1,10 @@
-import { Grid, Button, CircularProgress, colors } from '@material-ui/core';
+import {
+  Grid,
+  Button,
+  CircularProgress,
+  colors,
+  makeStyles,
+} from '@material-ui/core';
 import { Send } from '@material-ui/icons';
 
 import ContactMeFormKey from 'domain/contact_me/types/ContactMeFormKey';
@@ -6,8 +12,18 @@ import ContactMeFormKey from 'domain/contact_me/types/ContactMeFormKey';
 import useForm from './useForm';
 import FormTextField from './FormTextField';
 
+const useStyles = makeStyles({
+  button: {
+    color: 'rgba(0, 0, 0, 0.88)',
+    '&:hover': {
+      backgroundColor: colors.grey[300],
+    },
+  },
+});
+
 const Form = () => {
   const { form, setForm, errors, submitForm, isSubmiting } = useForm();
+  const classes = useStyles();
 
   const _onChange = (key: ContactMeFormKey) => (value: string) =>
     setForm({
@@ -61,6 +77,7 @@ const Form = () => {
             )
           }
           onClick={submitForm}
+          className={classes.button}
         >
           Send Me
         </Button>

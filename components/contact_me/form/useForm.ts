@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
 
 import LoadStatus, { LoadStatusValue } from 'config/load_status';
 
@@ -21,6 +22,8 @@ const useForm = () => {
   const [errors, setErrors] = useState<ContactMeFormErrors>({});
   const [submitStatus, setSubmitStatus] = useState<LoadStatusValue>(null);
 
+  const { enqueueSnackbar } = useSnackbar();
+
   useEffect(() => {
     if (submitStatus !== LoadStatus.LOADING) return;
 
@@ -29,13 +32,25 @@ const useForm = () => {
     const post = async () => {
       try {
         await submitContactMeForm(form);
+
         setSubmitStatus(LoadStatus.DONE);
+        setForm(initialForm);
+        enqueueSnackbar('Message was sent successfully', {
+          variant: 'success',
+        });
       } catch (error) {
         if (error instanceof ValidationError) {
           setErrors(error.errors);
           setSubmitStatus(LoadStatus.ERROR);
           return;
         }
+
+        setSubmitStatus(LoadStatus.ERROR);
+        enqueueSnackbar('Failed to send message', {
+          variant: 'error',
+        });
+
+        throw error;
       }
     };
     post();

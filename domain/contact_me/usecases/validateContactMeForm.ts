@@ -8,7 +8,7 @@ const validateContactMeForm = (form: ContactMeForm) => {
   if (!form.contact) errors.contact = 'Contact should not be empty';
   if (!form.message) errors.message = 'Message should not be empty';
 
-  if (!Object.keys(errors)) return null;
+  if (!Object.keys(errors).length) return null;
   return errors;
 };
 
