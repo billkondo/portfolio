@@ -1,13 +1,15 @@
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, CircularProgress, colors } from '@material-ui/core';
 import { Send } from '@material-ui/icons';
 
-import useForm, { FormKeyType } from './useForm';
-import FormTextField from './FormTextfield';
+import ContactMeFormKey from 'domain/contact_me/types/ContactMeFormKey';
+
+import useForm from './useForm';
+import FormTextField from './FormTextField';
 
 const Form = () => {
-  const { form, setForm } = useForm();
+  const { form, setForm, errors, submitForm, isSubmiting } = useForm();
 
-  const _onChange = (key: FormKeyType) => (value: string) =>
+  const _onChange = (key: ContactMeFormKey) => (value: string) =>
     setForm({
       ...form,
       [key]: value,
@@ -21,6 +23,7 @@ const Form = () => {
           onChange={_onChange('name')}
           label="Your name"
           fullWidth={true}
+          error={errors.name}
         ></FormTextField>
       </Grid>
 
@@ -30,21 +33,37 @@ const Form = () => {
           onChange={_onChange('contact')}
           label="Your contact"
           fullWidth={true}
+          error={errors.contact}
         ></FormTextField>
       </Grid>
 
-      <Grid item container style={{ marginTop: 40 }}>
+      <Grid item container style={{ marginTop: 32 }}>
         <FormTextField
           value={form.message}
           onChange={_onChange('message')}
           label="Message"
           fullWidth={true}
           multiline={true}
+          error={errors.message}
         ></FormTextField>
       </Grid>
 
       <Grid item container justify="flex-end" style={{ marginTop: 16 }}>
-        <Button endIcon={<Send></Send>}>Send Me</Button>
+        <Button
+          startIcon={
+            isSubmiting ? (
+              <CircularProgress
+                size={24}
+                style={{ color: colors.grey[900] }}
+              ></CircularProgress>
+            ) : (
+              <Send fontSize="small"></Send>
+            )
+          }
+          onClick={submitForm}
+        >
+          Send Me
+        </Button>
       </Grid>
     </Grid>
   );
