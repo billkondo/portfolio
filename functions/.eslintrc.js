@@ -21,5 +21,6 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import'],
   rules: {
     quotes: ['error', 'single'],
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };

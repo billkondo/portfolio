@@ -1,5 +1,7 @@
 import * as functions from 'firebase-functions';
 
+import { Timestamp, ContactMeCollection } from '../AdminSDK';
+
 type Form = {
   name: string;
   contact: string;
@@ -21,7 +23,7 @@ const isFormValid = (form: Form) => {
   return true;
 };
 
-export const call = functions.https.onCall((data) => {
+export const call = functions.https.onCall(async (data) => {
   const { form } = data;
 
   if (!form)
@@ -32,4 +34,12 @@ export const call = functions.https.onCall((data) => {
 
   if (!isFormValid(form))
     throw new functions.https.HttpsError('invalid-argument', 'form is invalid');
+
+  const { name, contact, message } = form as Form;
+  await ContactMeCollection().add({
+    name: name.trim(),
+    contact: contact.trim(),
+    message: message.trim(),
+    createdAt: Timestamp(),
+  });
 });
