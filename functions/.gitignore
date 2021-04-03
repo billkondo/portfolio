@@ -10,3 +10,4 @@ typings/
 node_modules/
 
 src/config/AdminSDKConfig.json
+src/config/EmailKeys.json
