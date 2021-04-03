@@ -1,6 +1,8 @@
-import { Grid, colors, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 
-import Tree from 'components/tree/Tree';
+import Root from 'components/tree/Root';
+
+import scrollToElement from 'utils/scrollToElement';
 
 const black = '#121212';
 
@@ -18,25 +20,25 @@ const Body = () => {
   return (
     <Grid container direction="column" className={classes.root}>
       <Grid item container>
-        <Tree
-          node={{
-            label: 'Projects',
-            children: [
-              {
-                label: 'Recipes Share',
-                children: [],
-                onClick: () => {
-                  const doc = document.getElementById('recipes-share');
-
-                  window.scrollTo({
-                    behavior: 'smooth',
-                    top: doc.offsetTop,
-                  });
+        <Root
+          nodes={[
+            {
+              label: 'Projects',
+              children: [
+                {
+                  label: 'Recipes Share',
+                  children: [],
+                  onClick: () => scrollToElement(window, 'recipes-share'),
                 },
-              },
-            ],
-          }}
-        ></Tree>
+              ],
+            },
+            {
+              label: 'Contact me',
+              children: [],
+              onClick: () => scrollToElement(window, 'contact-me'),
+            },
+          ]}
+        ></Root>
       </Grid>
     </Grid>
   );

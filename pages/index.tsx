@@ -5,6 +5,7 @@ import GithubButton from 'components/buttons/GitHubButton';
 import LinkedInButton from 'components/buttons/LinkedInButton';
 
 import RecipesShare from 'components/projects/recipes_share/Main';
+import ContactMe from 'components/contact_me/ContactMe';
 
 const useStyles = makeStyles({
   root: {
@@ -51,6 +52,19 @@ export default function Home() {
           style={{ padding: '1.5rem 0' }}
         >
           <RecipesShare></RecipesShare>
+        </Grid>
+
+        <Grid
+          id="contact-me"
+          item
+          container
+          className={classes.root}
+          justify="center"
+          style={{ padding: '1.5rem 0' }}
+        >
+          <Grid item container xs={12} sm={10} md={6}>
+            <ContactMe></ContactMe>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
