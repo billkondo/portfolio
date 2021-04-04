@@ -1,15 +1,11 @@
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 
-import FirebaseIcon from 'components/icons/FirebaseIcon';
-import MaterialUIIcon from 'components/icons/MaterialUIIcon';
+import Acknowledgements from './body/Acknowledgements';
+import Contacts from './body/Contacts';
 
 const useStyles = makeStyles({
-  title: {
-    fontFamily: 'Varela Round, sans-serif',
-  },
-  link: {
-    fontSize: 16,
-    fontFamily: 'Varela Round, sans-serif',
+  item: {
+    margin: 40,
   },
 });
 
@@ -18,48 +14,12 @@ const Body = () => {
 
   return (
     <Grid container justify="center">
-      <Grid item>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <div>
-            <Typography variant="h6" className={classes.title}>
-              <b>Acknowledgements</b>
-            </Typography>
-          </div>
+      <Grid item className={classes.item}>
+        <Acknowledgements></Acknowledgements>
+      </Grid>
 
-          <div style={{ marginTop: 16, display: 'flex' }}>
-            <MaterialUIIcon></MaterialUIIcon>
-
-            <a
-              className={classes.link}
-              href="https://icons8.com/icon/gFw7X5Tbl3ss/material-ui"
-              target="_blank"
-              rel="noreferrer"
-              style={{ marginLeft: 16 }}
-            >
-              Material UI icon by <b>Icons8</b>
-            </a>
-          </div>
-
-          <div style={{ marginTop: 8, display: 'flex' }}>
-            <FirebaseIcon></FirebaseIcon>
-
-            <a
-              className={classes.link}
-              href="https://icons8.com/icon/62452/firebase"
-              target="_blank"
-              rel="noreferrer"
-              style={{ marginLeft: 16 }}
-            >
-              Firebase icon by <b>Icons8</b>
-            </a>
-          </div>
-        </div>
+      <Grid item className={classes.item}>
+        <Contacts></Contacts>
       </Grid>
     </Grid>
   );

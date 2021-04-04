@@ -2,14 +2,16 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 import Body from './Body';
 
+const black24 = 'rgba(0, 0, 0, 0.24)';
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    borderTop: '1px solid #eaeaea',
+    borderTop: `1px solid ${black24}`,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 24,
+    paddingTop: 40,
     paddingBottom: 24,
   },
   body: {
