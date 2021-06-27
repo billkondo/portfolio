@@ -4,6 +4,7 @@ import Terminal from 'components/terminal/Terminal';
 import GithubButton from 'components/buttons/GitHubButton';
 import LinkedInButton from 'components/buttons/LinkedInButton';
 
+import TodoTree from 'components/projects/todo_tree/TodoTree';
 import RecipesShare from 'components/projects/recipes_share/Main';
 import ContactMe from 'components/contact_me/ContactMe';
 
@@ -41,6 +42,16 @@ export default function Home() {
               <LinkedInButton></LinkedInButton>
             </Grid>
           </Grid>
+        </Grid>
+
+        <Grid
+          id="todo-tree"
+          item
+          container
+          className={classes.root}
+          style={{ padding: `1.5rem 0` }}
+        >
+          <TodoTree></TodoTree>
         </Grid>
 
         <Grid

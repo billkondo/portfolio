@@ -1,5 +1,7 @@
 import { Grid, makeStyles } from '@material-ui/core';
 
+import ProjectsConfig from 'config/projects';
+
 import Root from 'components/tree/Root';
 
 import scrollToElement from 'utils/scrollToElement';
@@ -25,6 +27,11 @@ const Body = () => {
             {
               label: 'Projects',
               children: [
+                {
+                  label: ProjectsConfig.todoTree.NAME,
+                  children: [],
+                  onClick: () => scrollToElement(window, 'todo-tree'),
+                },
                 {
                   label: 'Recipes Share',
                   children: [],
