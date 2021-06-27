@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Fade, Grid, Grow, makeStyles } from '@material-ui/core';
 
 import Terminal from 'components/terminal/Terminal';
 import GithubButton from 'components/buttons/GitHubButton';
@@ -27,20 +27,26 @@ export default function Home() {
           className={classes.root}
           style={{ padding: '4rem 0' }}
         >
-          <Grid item container>
-            <Terminal></Terminal>
-          </Grid>
+          <Fade in={true}>
+            <Grid item container>
+              <Terminal></Terminal>
+            </Grid>
+          </Fade>
 
           <Grid item container style={{ flex: 1 }}></Grid>
 
           <Grid item container justify="center" style={{ marginTop: 24 }}>
-            <Grid item>
-              <GithubButton></GithubButton>
-            </Grid>
+            <Grow in={true}>
+              <Grid item>
+                <GithubButton></GithubButton>
+              </Grid>
+            </Grow>
 
-            <Grid item style={{ marginLeft: 40 }}>
-              <LinkedInButton></LinkedInButton>
-            </Grid>
+            <Grow in={true}>
+              <Grid item style={{ marginLeft: 40 }}>
+                <LinkedInButton></LinkedInButton>
+              </Grid>
+            </Grow>
           </Grid>
         </Grid>
 
