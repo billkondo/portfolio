@@ -155,8 +155,8 @@ const TodoTreeFeatures = () => {
 
           <Grid item container className={classes.text}>
             <Text variant="h5" textAlign="justify">
-              Manage your tasks in a interactive UI. Break them in smaller
-              subtasks and see how tasks depend on each other
+              Manage your tasks in an interactive UI. Break them in smaller
+              subtasks and see how they depend on each other
             </Text>
           </Grid>
         </Grid>
