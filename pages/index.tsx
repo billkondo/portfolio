@@ -4,6 +4,7 @@ import Terminal from 'components/terminal/Terminal';
 import GithubButton from 'components/buttons/GitHubButton';
 import LinkedInButton from 'components/buttons/LinkedInButton';
 
+import Navbar from 'components/navbar/Navbar';
 import TodoTree from 'components/projects/todo_tree/TodoTree';
 import RecipesShare from 'components/projects/recipes_share/Main';
 import ContactMe from 'components/contact_me/ContactMe';
@@ -19,6 +20,8 @@ export default function Home() {
 
   return (
     <Grid container justify="center">
+      <Navbar></Navbar>
+
       <Grid item container direction="column" xs={12} sm={10} md={8}>
         <Grid
           item
