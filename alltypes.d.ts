@@ -6,6 +6,7 @@ declare module 'react-country-flag' {
     countryCode?: string;
     svg?: boolean;
     style?: CSSProperties;
+    title?: string;
   };
   const ReactCountryFlag: FC<ReactCountryFlagProps>;
 
