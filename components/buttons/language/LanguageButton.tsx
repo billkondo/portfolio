@@ -12,6 +12,7 @@ const LanguageButton = () => {
             countryCode="US"
             svg
             style={{ borderRadius: 8, height: 32, width: 32 }}
+            title="Flag Button"
           ></ReactCountryFlag>
         </IconButton>
       )}
