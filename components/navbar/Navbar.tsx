@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) =>
       backdropFilter: 'blur(6px)',
       WebkitBackdropFilter: 'blur(6px)',
       backgroundColor: alpha(theme.palette.background.default, 0.72),
+      [theme.breakpoints.up('lg')]: {
+        padding: theme.spacing(0, 5),
+      },
     },
   })
 );
@@ -26,7 +29,7 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
-        <Grid container>
+        <Grid container justifyContent="flex-end">
           <Grid item>
             <LanguageButton></LanguageButton>
           </Grid>
