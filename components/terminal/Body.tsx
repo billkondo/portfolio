@@ -2,6 +2,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 
 import ProjectsConfig from 'config/projects';
 
+import useCommonTranslations from 'components/translations/useCommonTranslations';
 import Root from 'components/tree/Root';
 
 import scrollToElement from 'utils/scrollToElement';
@@ -17,6 +18,7 @@ const useStyles = makeStyles({
 });
 
 const Body = () => {
+  const { CONTACT_ME } = useCommonTranslations();
   const classes = useStyles();
 
   return (
@@ -40,7 +42,7 @@ const Body = () => {
               ],
             },
             {
-              label: 'Contact me',
+              label: CONTACT_ME,
               children: [],
               onClick: () => scrollToElement(window, 'contact-me'),
             },

@@ -1,4 +1,5 @@
 import { Fade, Grid, Grow, makeStyles } from '@material-ui/core';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Terminal from 'components/terminal/Terminal';
 import GithubButton from 'components/buttons/GitHubButton';
@@ -89,4 +90,12 @@ export default function Home() {
       </Grid>
     </Grid>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }

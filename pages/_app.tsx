@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { CssBaseline, makeStyles, colors } from '@material-ui/core';
+import { appWithTranslation } from 'next-i18next';
 import { SnackbarProvider } from 'notistack';
 import Head from 'next/head';
 
@@ -76,4 +77,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
