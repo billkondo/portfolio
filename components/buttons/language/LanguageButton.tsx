@@ -29,15 +29,17 @@ const languages = [
 const LanguageButton = () => {
   const { selectedLanguage, changeLanguage } = useLanguageButton();
 
+  const USselected = selectedLanguage === Languages.EN;
+
   return (
     <MenuPopover
       renderButton={(onClick) => (
         <IconButton onClick={onClick} style={{ height: 56, width: 56 }}>
           <ReactCountryFlag
-            countryCode="US"
+            countryCode={USselected ? 'US' : 'BR'}
             svg
             style={{ borderRadius: 8, height: 32, width: 32 }}
-            title="Flag Button"
+            title={`${USselected ? 'US' : 'BR'} Flag`}
           ></ReactCountryFlag>
         </IconButton>
       )}
