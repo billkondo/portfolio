@@ -1,9 +1,34 @@
-import { Grid, IconButton, Typography } from '@material-ui/core';
+import {
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  Typography,
+} from '@material-ui/core';
 import ReactCountryFlag from 'react-country-flag';
+
+import Languages from 'config/languages';
 
 import MenuPopover from 'components/popover/MenuPopover';
 
+import useLanguageButton from './useLanguageButton';
+
+const languages = [
+  {
+    label: 'English',
+    code: 'US',
+    language: Languages.EN,
+  },
+  {
+    label: 'Portuguese (BR)',
+    code: 'BR',
+    language: Languages.PT_BR,
+  },
+];
+
 const LanguageButton = () => {
+  const { selectedLanguage, changeLanguage } = useLanguageButton();
+
   return (
     <MenuPopover
       renderButton={(onClick) => (
@@ -17,27 +42,25 @@ const LanguageButton = () => {
         </IconButton>
       )}
     >
-      <Grid container direction="column">
-        <Grid item container>
-          <ReactCountryFlag
-            countryCode="US"
-            svg
-            style={{ borderRadius: 8, height: 32, width: 32 }}
-          ></ReactCountryFlag>
+      {languages.map((item) => (
+        <MenuItem
+          key={item.language}
+          selected={selectedLanguage === item.language}
+          onClick={() => changeLanguage(item.language)}
+        >
+          <ListItemIcon>
+            <ReactCountryFlag
+              countryCode={item.code}
+              svg
+              style={{ borderRadius: 8, height: 32, width: 32 }}
+            ></ReactCountryFlag>
+          </ListItemIcon>
 
-          <Typography> English</Typography>
-        </Grid>
-
-        <Grid item container>
-          <ReactCountryFlag
-            countryCode="BR"
-            svg
-            style={{ borderRadius: 8, height: 32, width: 32 }}
-          ></ReactCountryFlag>
-
-          <Typography> Portuguese (BR) </Typography>
-        </Grid>
-      </Grid>
+          <ListItemText>
+            <Typography> {item.label} </Typography>
+          </ListItemText>
+        </MenuItem>
+      ))}
     </MenuPopover>
   );
 };
