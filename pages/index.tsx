@@ -1,4 +1,11 @@
-import { Fade, Grid, Grow, makeStyles } from '@material-ui/core';
+import {
+  createStyles,
+  Divider,
+  Fade,
+  Grid,
+  Grow,
+  makeStyles,
+} from '@material-ui/core';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Terminal from 'components/terminal/Terminal';
@@ -10,11 +17,23 @@ import TodoTree from 'components/projects/todo_tree/TodoTree';
 import RecipesShare from 'components/projects/recipes_share/Main';
 import ContactMe from 'components/contact_me/ContactMe';
 
-const useStyles = makeStyles({
-  root: {
-    minHeight: '100vh',
-  },
-});
+import { DESKTOP_HEIGHT, MOBILE_HEIGHT } from 'components/navbar/navbarConfig';
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      minHeight: '100vh',
+      paddingTop: MOBILE_HEIGHT + theme.spacing(1),
+      [theme.breakpoints.up('lg')]: {
+        paddingTop: DESKTOP_HEIGHT + theme.spacing(3),
+      },
+    },
+    divider: {
+      marginTop: theme.spacing(10),
+      marginBottom: theme.spacing(10),
+    },
+  })
+);
 
 export default function Home() {
   const classes = useStyles();
@@ -24,13 +43,7 @@ export default function Home() {
       <Navbar></Navbar>
 
       <Grid item container direction="column" xs={12} sm={10} md={8}>
-        <Grid
-          item
-          container
-          direction="column"
-          className={classes.root}
-          style={{ padding: '4rem 0' }}
-        >
+        <Grid item container direction="column" className={classes.root}>
           <Fade in={true}>
             <Grid item container>
               <Terminal></Terminal>
@@ -54,15 +67,13 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <Grid
-          id="todo-tree"
-          item
-          container
-          className={classes.root}
-          style={{ padding: `1.5rem 0` }}
-        >
+        <Divider className={classes.divider}></Divider>
+
+        <Grid id="todo-tree" item container className={classes.root}>
           <TodoTree></TodoTree>
         </Grid>
+
+        <Divider className={classes.divider}></Divider>
 
         <Grid
           id="recipes-share"
@@ -70,10 +81,11 @@ export default function Home() {
           container
           direction="column"
           className={classes.root}
-          style={{ padding: '1.5rem 0' }}
         >
           <RecipesShare></RecipesShare>
         </Grid>
+
+        <Divider className={classes.divider}></Divider>
 
         <Grid
           id="contact-me"
@@ -81,12 +93,13 @@ export default function Home() {
           container
           className={classes.root}
           justify="center"
-          style={{ padding: '1.5rem 0' }}
         >
           <Grid item container xs={12} sm={10} md={6}>
             <ContactMe></ContactMe>
           </Grid>
         </Grid>
+
+        <Divider className={classes.divider}></Divider>
       </Grid>
     </Grid>
   );

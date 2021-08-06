@@ -7,7 +7,6 @@ const black24 = 'rgba(0, 0, 0, 0.24)';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    borderTop: `1px solid ${black24}`,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
