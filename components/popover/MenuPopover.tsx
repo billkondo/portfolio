@@ -21,6 +21,7 @@ const MenuPopover: FC<Props> = ({ renderButton, children }) => {
       {renderButton(onClick)}
 
       <Popover
+        elevation={8}
         open={open}
         onClose={onClose}
         anchorEl={anchorEl}

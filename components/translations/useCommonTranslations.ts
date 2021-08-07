@@ -1,7 +1,15 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
 
-const TranslationKeys = ['CONTACT_ME', 'PROJECTS', 'CONTACTS'] as const;
+const TranslationKeys = [
+  'CONTACT_ME',
+  'PROJECTS',
+
+  'EN',
+  'PTBR',
+
+  'CONTACTS',
+] as const;
 type CommonTranslations = {
   [key in typeof TranslationKeys[number]]: string;
 };

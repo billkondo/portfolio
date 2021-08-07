@@ -1,7 +1,11 @@
+import { useMemo } from 'react';
 import {
+  colors,
+  createStyles,
   IconButton,
   ListItemIcon,
   ListItemText,
+  makeStyles,
   MenuItem,
   Typography,
 } from '@material-ui/core';
@@ -12,22 +16,37 @@ import Languages from 'config/languages';
 import MenuPopover from 'components/popover/MenuPopover';
 
 import useLanguageButton from './useLanguageButton';
+import useCommonTranslations from 'components/translations/useCommonTranslations';
 
-const languages = [
+const languages = (params: { EN: string; PTBR: string }) => [
   {
-    label: 'English',
+    label: params.EN,
     code: 'US',
     language: Languages.EN,
   },
   {
-    label: 'Portuguese (BR)',
+    label: params.PTBR,
     code: 'BR',
     language: Languages.PT_BR,
   },
 ];
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    selectedEN: {
+      backgroundColor: colors.red[100],
+    },
+    selectedBR: {
+      backgroundColor: colors.green[100],
+    },
+  })
+);
 const LanguageButton = () => {
+  const classes = useStyles();
+  const { EN, PTBR } = useCommonTranslations();
   const { selectedLanguage, changeLanguage } = useLanguageButton();
+
+  const _languages = useMemo(() => languages({ EN, PTBR }), [EN, PTBR]);
 
   const USselected = selectedLanguage === Languages.EN;
 
@@ -44,25 +63,42 @@ const LanguageButton = () => {
         </IconButton>
       )}
     >
-      {languages.map((item) => (
-        <MenuItem
-          key={item.language}
-          selected={selectedLanguage === item.language}
-          onClick={() => changeLanguage(item.language)}
-        >
-          <ListItemIcon>
-            <ReactCountryFlag
-              countryCode={item.code}
-              svg
-              style={{ borderRadius: 8, height: 32, width: 32 }}
-            ></ReactCountryFlag>
-          </ListItemIcon>
+      {_languages.map((item) => {
+        const selected = selectedLanguage === item.language;
+        const isEN = item.language === Languages.EN;
 
-          <ListItemText>
-            <Typography> {item.label} </Typography>
-          </ListItemText>
-        </MenuItem>
-      ))}
+        return (
+          <MenuItem
+            key={item.language}
+            selected={selected}
+            onClick={() => changeLanguage(item.language)}
+            style={{
+              backgroundColor: selected
+                ? isEN
+                  ? colors.red[100]
+                  : colors.green[100]
+                : '',
+            }}
+          >
+            <ListItemIcon>
+              <ReactCountryFlag
+                countryCode={item.code}
+                svg
+                style={{ borderRadius: 8, height: 32, width: 32 }}
+              ></ReactCountryFlag>
+            </ListItemIcon>
+
+            <ListItemText>
+              <Typography
+                variant="body1"
+                style={{ fontWeight: selected ? 700 : 200 }}
+              >
+                {item.label}
+              </Typography>
+            </ListItemText>
+          </MenuItem>
+        );
+      })}
     </MenuPopover>
   );
 };
