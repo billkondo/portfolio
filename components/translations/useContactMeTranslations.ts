@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
 
-const TranslationsKeys = [
+const TranslationKeys = [
   'SEND_EMAIL',
   'TEXT_ME',
   'YOUR_NAME',
@@ -21,7 +21,7 @@ const TranslationsKeys = [
   'ERROR_MESSAGE',
 ] as const;
 type ContactMeTranslations = {
-  [key in typeof TranslationsKeys[number]]: string;
+  [key in typeof TranslationKeys[number]]: string;
 };
 
 const useContactMeTranslations = () => {
@@ -30,7 +30,7 @@ const useContactMeTranslations = () => {
   const translations: ContactMeTranslations = useMemo(() => {
     const dict = {};
 
-    for (const key of TranslationsKeys)
+    for (const key of TranslationKeys)
       dict[key] = t(key, { limit: '{{limit}}' });
 
     return dict as ContactMeTranslations;

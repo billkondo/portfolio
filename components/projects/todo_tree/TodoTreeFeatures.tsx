@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) =>
         props.isLG ? 0 : theme.spacing(2.5),
     },
     text: {
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(2),
     },
     buttons: {
       marginTop: theme.spacing(4),
@@ -94,7 +94,7 @@ const TodoTreeFeatures = () => {
   const [show, setShow] = useState(true);
 
   const textHeight = useMemo(() => {
-    if (isMD) return 100;
+    if (isMD) return 160;
     return 240;
   }, [isMD]);
 
@@ -134,7 +134,15 @@ const TodoTreeFeatures = () => {
       <Grid item md={12} lg={6} className={classes.textItem}>
         <Grid container direction="column">
           <Grid item container justifyContent={isLG ? 'flex-start' : 'center'}>
-            <div style={{ height: textHeight }}>
+            <div
+              style={{
+                height: textHeight,
+                display: 'flex',
+                alignItems: 'center',
+                minWidth: 320,
+                justifyContent: isLG ? 'flex-start' : 'center',
+              }}
+            >
               {Titles.map((title, index) => {
                 return (
                   <Grow
