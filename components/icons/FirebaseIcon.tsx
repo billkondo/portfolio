@@ -1,19 +1,20 @@
 import { FunctionComponent } from 'react';
+import { InlineIcon, Icon } from '@iconify/react';
+import Firebase from '@iconify/icons-logos/firebase';
 
 type Props = {
-  height?: number;
-  width?: number;
+  inline?: boolean;
 };
-const FirebaseIcon: FunctionComponent<Props> = ({
-  height = 24,
-  width = 24,
-}) => {
-  return (
-    <img
-      src="https://img.icons8.com/color/48/000000/firebase.png"
-      style={{ height, width }}
-      alt="Firebase icon"
-    />
+const FirebaseIcon: FunctionComponent<Props> = ({ inline }) => {
+  const style = {
+    width: 24,
+    height: 24,
+  };
+
+  return inline ? (
+    <InlineIcon icon={Firebase} style={style}></InlineIcon>
+  ) : (
+    <Icon icon={Firebase} style={style}></Icon>
   );
 };
 

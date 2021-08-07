@@ -2,8 +2,6 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 import Body from './Body';
 
-const black24 = 'rgba(0, 0, 0, 0.24)';
-
 const useStyles = makeStyles({
   root: {
     width: '100%',

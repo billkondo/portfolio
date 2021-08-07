@@ -1,19 +1,15 @@
 import { FunctionComponent } from 'react';
+import { InlineIcon, Icon } from '@iconify/react';
+import MaterialUI from '@iconify/icons-logos/material-ui';
 
 type Props = {
-  height?: number;
-  width?: number;
+  inline?: boolean;
 };
-const MaterialUIIcon: FunctionComponent<Props> = ({
-  height = 24,
-  width = 24,
-}) => {
-  return (
-    <img
-      src="https://img.icons8.com/color/50/000000/material-ui.png"
-      style={{ height, width }}
-      alt="Material UI icon"
-    />
+const MaterialUIIcon: FunctionComponent<Props> = ({ inline }) => {
+  return inline ? (
+    <InlineIcon icon={MaterialUI}></InlineIcon>
+  ) : (
+    <Icon icon={MaterialUI}></Icon>
   );
 };
 

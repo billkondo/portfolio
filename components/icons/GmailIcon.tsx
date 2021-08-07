@@ -1,16 +1,15 @@
 import { FunctionComponent } from 'react';
+import { Icon, InlineIcon } from '@iconify/react';
+import Gmail from '@iconify/icons-logos/google-gmail';
 
 type Props = {
-  height?: number;
-  width?: number;
+  inline?: boolean;
 };
-const GmailIcon: FunctionComponent<Props> = ({ height = 24, width = 24 }) => {
-  return (
-    <img
-      src="https://img.icons8.com/fluent/48/000000/gmail--v1.png"
-      style={{ height, width }}
-      alt="Gmail icon"
-    />
+const GmailIcon: FunctionComponent<Props> = ({ inline = false }) => {
+  return inline ? (
+    <InlineIcon icon={Gmail}></InlineIcon>
+  ) : (
+    <Icon icon={Gmail}></Icon>
   );
 };
 
