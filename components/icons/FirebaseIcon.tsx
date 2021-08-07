@@ -1,21 +1,9 @@
-import { FunctionComponent } from 'react';
-import { InlineIcon, Icon } from '@iconify/react';
-import Firebase from '@iconify/icons-logos/firebase';
+import dynamic from 'next/dynamic';
 
-type Props = {
-  inline?: boolean;
-};
-const FirebaseIcon: FunctionComponent<Props> = ({ inline }) => {
-  const style = {
-    width: 24,
-    height: 24,
-  };
+// Doing dynamic import for this icon because there is a warning
+// complaining about an error during server side rendering
+const FirebaseIconNoSSR = dynamic(() => import('./_FirebaseIcon'), {
+  ssr: false,
+});
 
-  return inline ? (
-    <InlineIcon icon={Firebase} style={style}></InlineIcon>
-  ) : (
-    <Icon icon={Firebase} style={style}></Icon>
-  );
-};
-
-export default FirebaseIcon;
+export default FirebaseIconNoSSR;

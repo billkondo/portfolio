@@ -1,17 +1,26 @@
 import { FunctionComponent } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
+import { Property } from 'csstype';
 
+type StylesProps = {
+  textAlign: Property.TextAlign;
+};
 const useStyles = makeStyles({
   root: {
     fontFamily: 'Varela Round, sans-serif',
     lineHeight: 1.5,
-    textAlign: 'center',
+    textAlign: (props: StylesProps) => props.textAlign,
   },
 });
 
-type Props = {};
-const Title: FunctionComponent<Props> = ({ children }) => {
-  const classes = useStyles();
+type Props = {
+  textAlign?: Property.TextAlign;
+};
+const Title: FunctionComponent<Props> = ({
+  children,
+  textAlign = 'center',
+}) => {
+  const classes = useStyles({ textAlign });
 
   return (
     <Typography variant="h4" className={classes.root}>

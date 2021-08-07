@@ -1,35 +1,44 @@
-import { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core';
+import { FC } from 'react';
+import { Chip, createStyles, makeStyles } from '@material-ui/core';
 
-import Description from 'components/typography/Description';
-
-const useStyles = makeStyles({
-  link: {
-    display: 'flex',
-    justifyItems: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    marginLeft: 16,
-  },
-});
+type StylesProps = {
+  color: string;
+};
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      padding: theme.spacing(1),
+      height: theme.spacing(5),
+      fontWeight: 700,
+      borderColor: (props: StylesProps) =>
+        props.color ?? theme.palette.text.secondary,
+    },
+  })
+);
 
 type Props = {
   url: string;
   icon: JSX.Element;
   text: string;
+  color?: string;
 };
-const Technology: FunctionComponent<Props> = ({ url, icon, text }) => {
-  const classes = useStyles();
+const Technology: FC<Props> = ({ url, icon, text, color }) => {
+  const classes = useStyles({ color });
 
   return (
-    <a className={classes.link} href={url} target="_blank" rel="noreferrer">
-      {icon}
-
-      <div className={classes.text}>
-        <Description>{text}</Description>
-      </div>
-    </a>
+    <Chip
+      icon={icon}
+      label={text}
+      clickable
+      component="a"
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      variant="outlined"
+      classes={{
+        root: classes.root,
+      }}
+    ></Chip>
   );
 };
 
