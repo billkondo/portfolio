@@ -108,7 +108,11 @@ export default function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'contact_me'])),
+      ...(await serverSideTranslations(locale, [
+        'common',
+        'todo_tree',
+        'contact_me',
+      ])),
     },
   };
 }
