@@ -62,7 +62,7 @@ const Header = () => {
       </Grid>
 
       <div className={classes.titleSpace}>
-        <Grid container justify="center" style={{ marginTop: -4 }}>
+        <Grid container justifyContent="center" style={{ marginTop: -4 }}>
           <Grid item>
             <Icon className={classes.folder}>
               <Folder></Folder>

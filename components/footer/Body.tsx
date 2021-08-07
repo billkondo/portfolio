@@ -12,7 +12,7 @@ const Body = () => {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Grid item className={classes.item}>
         <Contacts></Contacts>
       </Grid>

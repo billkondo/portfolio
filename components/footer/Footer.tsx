@@ -30,7 +30,7 @@ const Footer = () => {
           <Body></Body>
         </Grid>
 
-        <Grid item container className={classes.name} justify="center">
+        <Grid item container className={classes.name} justifyContent="center">
           <Typography
             variant="h5"
             style={{ fontFamily: 'Varela Round, sans-serif' }}

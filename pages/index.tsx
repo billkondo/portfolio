@@ -39,7 +39,7 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center">
+    <Grid container justifyContent="center">
       <Navbar></Navbar>
 
       <Grid item container direction="column" xs={12} sm={10} md={8}>
@@ -52,7 +52,12 @@ export default function Home() {
 
           <Grid item container style={{ flex: 1 }}></Grid>
 
-          <Grid item container justify="center" style={{ marginTop: 24 }}>
+          <Grid
+            item
+            container
+            justifyContent="center"
+            style={{ marginTop: 24 }}
+          >
             <Grow in={true}>
               <Grid item>
                 <GithubButton></GithubButton>
@@ -92,7 +97,7 @@ export default function Home() {
           item
           container
           className={classes.root}
-          justify="center"
+          justifyContent="center"
         >
           <Grid item container xs={12} sm={10} md={6}>
             <ContactMe></ContactMe>
@@ -111,6 +116,7 @@ export async function getStaticProps({ locale }) {
       ...(await serverSideTranslations(locale, [
         'common',
         'todo_tree',
+        'recipes_share',
         'contact_me',
       ])),
     },

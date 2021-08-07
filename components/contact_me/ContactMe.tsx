@@ -24,7 +24,7 @@ const ContactMe = () => {
         <Description>{translations.SEND_EMAIL}</Description>
       </Grid>
 
-      <Grid item container justify="flex-end">
+      <Grid item container justifyContent="flex-end">
         <SubTitle>{Email}</SubTitle>
       </Grid>
 
