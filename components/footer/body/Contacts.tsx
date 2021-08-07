@@ -4,6 +4,7 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import GmailIcon from 'components/icons/GmailIcon';
 import PhoneIcon from 'components/icons/PhoneIcon';
 import TelegramIcon from 'components/icons/TelegramIcon';
+import useCommonTranslations from 'components/translations/useCommonTranslations';
 
 const useStyles = makeStyles({
   footerBody: {
@@ -16,13 +17,14 @@ const useStyles = makeStyles({
 });
 
 const Contacts = () => {
+  const { CONTACTS } = useCommonTranslations();
   const classes = useStyles();
 
   return (
     <Grid container direction="column" className={classes.footerBody}>
       <Grid item container>
         <Typography variant="h6" className={classes.title}>
-          <b>Contacts</b>
+          <b>{CONTACTS}</b>
         </Typography>
       </Grid>
 

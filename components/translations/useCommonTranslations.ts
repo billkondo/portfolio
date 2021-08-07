@@ -1,13 +1,23 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
+
+const TranslationKeys = ['CONTACT_ME', 'PROJECTS', 'CONTACTS'] as const;
+type CommonTranslations = {
+  [key in typeof TranslationKeys[number]]: string;
+};
 
 const useCommonTranslations = () => {
   const { t } = useTranslation('common');
 
-  const CONTACT_ME = t('CONTACT_ME');
+  const translations: CommonTranslations = useMemo(() => {
+    const dict = {};
 
-  return {
-    CONTACT_ME,
-  };
+    for (const key of TranslationKeys) dict[key] = t(key);
+
+    return dict as CommonTranslations;
+  }, [t]);
+
+  return translations;
 };
 
 export default useCommonTranslations;

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 const Body = () => {
-  const { CONTACT_ME } = useCommonTranslations();
+  const { PROJECTS, CONTACT_ME } = useCommonTranslations();
   const classes = useStyles();
 
   return (
@@ -27,7 +27,7 @@ const Body = () => {
         <Root
           nodes={[
             {
-              label: 'Projects',
+              label: PROJECTS,
               children: [
                 {
                   label: ProjectsConfig.todoTree.NAME,
