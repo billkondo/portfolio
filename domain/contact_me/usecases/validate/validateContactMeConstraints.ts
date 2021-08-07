@@ -1,0 +1,2 @@
+export const SINGLE_LINE_MAX_LENGTH = 256;
+export const MULTI_LINE_MAX_LENGTH = 65536;

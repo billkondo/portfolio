@@ -1,0 +1,19 @@
+{
+  "SEND_EMAIL": "Envie um email para",
+  "TEXT_ME": "ou me envie uma mensagem",
+  "YOUR_NAME": "Seu nome",
+  "YOUR_CONTACT": "Seu contato",
+  "MESSAGE": "Messagem",
+  "SEND_ME": "Enviar",
+
+  "NAME_EMPTY": "Nome não deve ser <b>vazio</b>",
+  "CONTACT_EMPTY": "Contato não deve ser <b>vazio</b>",
+  "MESSAGE_EMPTY": "Mensagem não deve ser <b>vazia</b>",
+
+  "NAME_TOO_BIG": "Nome não deve ter mais de <b>{{limit}}</b> caracteres",
+  "CONTACT_TOO_BIG": "Contato não deve ter mais de <b>{{limit}}</b> caracteres",
+  "MESSAGE_TOO_BIG": "Mensagem não deve ter mais de <b>{{limit}}</b> caracteres",
+
+  "SUCCESS_MESSAGE": "Mensagem enviada com sucesso",
+  "ERROR_MESSAGE": "Não foi possível enviar a mensagem"
+}

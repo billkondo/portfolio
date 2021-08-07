@@ -4,6 +4,7 @@ import Email from 'config/email';
 
 import Description from 'components/typography/Description';
 import SubTitle from 'components/typography/Subtitle';
+import useContactMeTranslations from 'components/translations/useContactMeTranslations';
 
 import Form from './form/Form';
 
@@ -14,12 +15,13 @@ const useStyles = makeStyles({
 });
 
 const ContactMe = () => {
+  const translations = useContactMeTranslations();
   const classes = useStyles();
 
   return (
     <Grid container direction="column" className={classes.root}>
       <Grid item container>
-        <Description>Send an email to</Description>
+        <Description>{translations.SEND_EMAIL}</Description>
       </Grid>
 
       <Grid item container justify="flex-end">
@@ -29,7 +31,7 @@ const ContactMe = () => {
       <Grid item container style={{ flex: 1 }}></Grid>
 
       <Grid item container>
-        <Description>or text me ...</Description>
+        <Description>{translations.TEXT_ME}...</Description>
       </Grid>
 
       <Grid item container style={{ marginTop: 32 }}>

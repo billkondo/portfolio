@@ -8,6 +8,7 @@ import {
 import { Send } from '@material-ui/icons';
 
 import ContactMeFormKey from 'domain/contact_me/types/ContactMeFormKey';
+import useContactMeTranslations from 'components/translations/useContactMeTranslations';
 
 import useForm from './useForm';
 import FormTextField from './FormTextField';
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
 });
 
 const Form = () => {
+  const translations = useContactMeTranslations();
   const { form, setForm, errors, submitForm, isSubmiting } = useForm();
   const classes = useStyles();
 
@@ -37,7 +39,7 @@ const Form = () => {
         <FormTextField
           value={form.name}
           onChange={_onChange('name')}
-          label="Your name"
+          label={translations.YOUR_NAME}
           fullWidth={true}
           error={errors.name}
         ></FormTextField>
@@ -47,7 +49,7 @@ const Form = () => {
         <FormTextField
           value={form.contact}
           onChange={_onChange('contact')}
-          label="Your contact"
+          label={translations.YOUR_CONTACT}
           fullWidth={true}
           error={errors.contact}
         ></FormTextField>
@@ -57,7 +59,7 @@ const Form = () => {
         <FormTextField
           value={form.message}
           onChange={_onChange('message')}
-          label="Message"
+          label={translations.MESSAGE}
           fullWidth={true}
           multiline={true}
           error={errors.message}
@@ -79,7 +81,7 @@ const Form = () => {
           onClick={submitForm}
           className={classes.button}
         >
-          Send Me
+          {translations.SEND_ME}
         </Button>
       </Grid>
     </Grid>
