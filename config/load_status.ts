@@ -1,14 +1,8 @@
-export type LoadStatusValue = 'loading' | 'done' | 'error';
+export const SUBMIT = 'submit';
+export const DONE = 'done';
+export const LOADING = 'loading';
+export const ERROR = 'error';
 
-type LoadStatusType = {
-  LOADING: LoadStatusValue;
-  ERROR: LoadStatusValue;
-  DONE: LoadStatusValue;
-};
-const LoadStatus: LoadStatusType = {
-  LOADING: 'loading',
-  ERROR: 'error',
-  DONE: 'done',
-};
+type LoadStatus = typeof SUBMIT | typeof DONE | typeof LOADING | typeof ERROR;
 
 export default LoadStatus;

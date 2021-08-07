@@ -2,12 +2,9 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 import Body from './Body';
 
-const black24 = 'rgba(0, 0, 0, 0.24)';
-
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    borderTop: `1px solid ${black24}`,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +30,7 @@ const Footer = () => {
           <Body></Body>
         </Grid>
 
-        <Grid item container className={classes.name} justify="center">
+        <Grid item container className={classes.name} justifyContent="center">
           <Typography
             variant="h5"
             style={{ fontFamily: 'Varela Round, sans-serif' }}

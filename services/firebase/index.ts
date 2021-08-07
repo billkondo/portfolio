@@ -8,7 +8,7 @@ import FirebaseConfig from 'config/firebase_config';
 import ContactMeForm from 'domain/contact_me/types/ContactMeForm';
 
 export const initFirebase = () => {
-  Firebase.initializeApp(FirebaseConfig);
+  if (!Firebase.apps.length) Firebase.initializeApp(FirebaseConfig);
   if (!isDev) Firebase.analytics();
 };
 

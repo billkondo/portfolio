@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import { Trans } from 'next-i18next';
 import { Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -15,7 +16,7 @@ const Description: FunctionComponent<Props> = ({ children }) => {
 
   return (
     <Typography variant="body1" className={classes.root}>
-      {children}
+      <Trans components={{ b: <b /> }}>{children}</Trans>
     </Typography>
   );
 };

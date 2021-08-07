@@ -1,97 +1,105 @@
+import { FC } from 'react';
 import { Grid, Icon, colors, makeStyles } from '@material-ui/core';
 import { Bookmark, ThumbUpAlt, Create } from '@material-ui/icons';
 
 import Title from 'components/typography/Title';
 import Description from 'components/typography/Description';
+import useRecipesShareTranslations from 'components/translations/useRecipesShareTranslations';
+
+import useBreakpoint from 'hooks/useBreakpoint';
 
 const useStyles = makeStyles({
-  iconItem: {
-    marginTop: 8,
-  },
   icon: {
     color: colors.red[400],
-  },
-  text: {
-    marginLeft: 16,
-  },
-  features: {
-    marginTop: 32,
   },
 });
 
 const About = () => {
   const classes = useStyles();
+  const { TITLE, BOOKMARK, LIKE, MOST_RATED, CREATE_EDIT } =
+    useRecipesShareTranslations();
+  const isSM = useBreakpoint('sm');
 
   return (
     <Grid container direction="column">
-      <Grid item container justify="center">
-        <Title>Discover new recipes and share them</Title>
+      <Grid item container justifyContent={isSM ? 'center' : 'flex-start'}>
+        <Title textAlign={isSM ? 'center' : 'start'}>{TITLE}</Title>
       </Grid>
 
-      <Grid item container direction="column" className={classes.features}>
-        <Grid item container justify="center" alignItems="center">
-          <Grid item className={classes.iconItem}>
+      <Grid
+        item
+        container
+        justifyContent={isSM ? 'center' : 'flex-start'}
+        style={{ minWidth: 500, marginTop: 40 }}
+      >
+        <Column>
+          <Item>
             <Icon className={classes.icon}>
               <Bookmark></Bookmark>
             </Icon>
-          </Grid>
+          </Item>
 
-          <Grid item className={classes.text}>
-            <Description>
-              Recipes <b>bookmarking</b>
-            </Description>
-          </Grid>
-        </Grid>
-
-        <Grid item container justify="center" alignItems="center">
-          <Grid item className={classes.iconItem}>
+          <Item>
             <Icon className={classes.icon}>
               <ThumbUpAlt></ThumbUpAlt>
             </Icon>
-          </Grid>
+          </Item>
 
-          <Grid item className={classes.text}>
-            <Description>
-              Recipes <b>liking</b>
-            </Description>
-          </Grid>
-        </Grid>
-
-        <Grid
-          item
-          container
-          justify="center"
-          alignItems="center"
-          className={classes.iconItem}
-        >
-          <Grid item>
+          <Item>
             <i
               className="fas fa-trophy"
               style={{ fontSize: 16, color: colors.red[400] }}
               aria-hidden
             ></i>
-          </Grid>
+          </Item>
 
-          <Grid item className={classes.text}>
-            <Description>
-              Most <b>rated</b> recipes
-            </Description>
-          </Grid>
-        </Grid>
-
-        <Grid item container justify="center" alignItems="center">
-          <Grid item className={classes.iconItem}>
+          <Item>
             <Icon className={classes.icon}>
               <Create></Create>
             </Icon>
-          </Grid>
+          </Item>
+        </Column>
 
-          <Grid item className={classes.text}>
-            <Description>Easy to create and edit</Description>
-          </Grid>
-        </Grid>
+        <Column>
+          <Item>
+            <Description>{BOOKMARK}</Description>
+          </Item>
+
+          <Item>
+            <Description>{LIKE}</Description>
+          </Item>
+
+          <Item>
+            <Description>{MOST_RATED}</Description>
+          </Item>
+
+          <Item>
+            <Description>{CREATE_EDIT}</Description>
+          </Item>
+        </Column>
       </Grid>
     </Grid>
+  );
+};
+
+const Item: FC = ({ children }) => {
+  return (
+    <div
+      style={{
+        margin: 8,
+        height: 32,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const Column: FC = ({ children }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>{children}</div>
   );
 };
 

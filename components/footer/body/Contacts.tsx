@@ -1,72 +1,85 @@
-import { Grid, Typography, Icon, colors, makeStyles } from '@material-ui/core';
-import { Telegram, Phone } from '@material-ui/icons';
+import { FC } from 'react';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
 import GmailIcon from 'components/icons/GmailIcon';
+import PhoneIcon from 'components/icons/PhoneIcon';
+import TelegramIcon from 'components/icons/TelegramIcon';
+import useCommonTranslations from 'components/translations/useCommonTranslations';
 
-const black87 = 'rgba(0, 0, 0, 0.87)';
 const useStyles = makeStyles({
+  footerBody: {
+    minWidth: 240,
+  },
   title: {
     margin: 8,
     fontFamily: 'Varela Round, sans-serif',
   },
-  item: {
-    fontFamily: 'Varela Round, sans-serif',
-  },
-  itemLeft: {
-    margin: 8,
-  },
-  itemRight: {
-    margin: 8,
-    fontSize: 16,
-    color: black87,
-  },
 });
 
 const Contacts = () => {
+  const { CONTACTS } = useCommonTranslations();
   const classes = useStyles();
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" className={classes.footerBody}>
       <Grid item container>
         <Typography variant="h6" className={classes.title}>
-          Contacts
+          <b>{CONTACTS}</b>
         </Typography>
       </Grid>
 
-      <Grid item container className={classes.item} style={{ marginTop: 16 }}>
-        <Grid item className={classes.itemLeft}>
-          <Icon style={{ color: '#0088CC' }}>
-            <Telegram></Telegram>
-          </Icon>
-        </Grid>
+      <Grid item container>
+        <Column>
+          <Item>
+            <TelegramIcon inline></TelegramIcon>
+          </Item>
 
-        <Grid item className={classes.itemRight}>
-          @bill_kondo
-        </Grid>
-      </Grid>
+          <Item>
+            <GmailIcon inline></GmailIcon>
+          </Item>
 
-      <Grid item container className={classes.item}>
-        <Grid item className={classes.itemLeft}>
-          <GmailIcon></GmailIcon>
-        </Grid>
+          <Item>
+            <PhoneIcon inline></PhoneIcon>
+          </Item>
+        </Column>
 
-        <Grid item className={classes.itemRight}>
-          willkondo@gmail.com
-        </Grid>
-      </Grid>
+        <Column>
+          <Item>
+            <Typography variant="body1">@bill_kondo</Typography>
+          </Item>
 
-      <Grid item container className={classes.item}>
-        <Grid item className={classes.itemLeft}>
-          <Icon style={{ color: colors.green[800] }}>
-            <Phone></Phone>
-          </Icon>
-        </Grid>
+          <Item>
+            <Typography variant="body1">willkondo@gmail.com</Typography>
+          </Item>
 
-        <Grid item className={classes.itemRight}>
-          (+55) 11 99736 5087
-        </Grid>
+          <Item>
+            <Typography variant="body1">(+55) 11 99736 5087</Typography>
+          </Item>
+        </Column>
       </Grid>
     </Grid>
+  );
+};
+
+const Item: FC = ({ children }) => {
+  return (
+    <div
+      style={{
+        fontFamily: 'Varela Round, sans-serif',
+        margin: 8,
+        height: 32,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const Column: FC = ({ children }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>{children}</div>
   );
 };
 

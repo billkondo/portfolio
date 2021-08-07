@@ -4,7 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,12 +19,16 @@
     "jsx": "preserve",
     "baseUrl": ".",
   },
+  "typeRoots": [
+    "./node_modules/@types",
+    "./alltypes.d.ts",
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

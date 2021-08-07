@@ -1,0 +1,10 @@
+{
+  "VISUALIZE": "Visualize seus ToDo's",
+  "TREE_UI": "em uma UI em forma de <b>árvore</b>",
+  "CREATE": "Crie <b>subtarefas</b>",
+  "COMPLETE": "e as complete",
+
+  "DESCRIPTION": "Controle suas tarefas em uma UI interativa. Quebre suas tarefas em partes menores e veja como elas dependem umas das outras",
+
+  "TEST_WITHOUT_ACCOUNT": "Teste sem criar conta"
+}

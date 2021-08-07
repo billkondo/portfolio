@@ -1,59 +1,65 @@
-import { Grid, Typography, colors, makeStyles } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 
-import useIsUpSM from 'hooks/useIsUpSM';
-import ProjectURL from './ProjectURL';
+import ProjectsConfig from 'config/projects';
+
+import useBreakpoint from 'hooks/useBreakpoint';
 
 const useStyles = makeStyles({
   icon: {
-    color: colors.red[400],
+    color: ProjectsConfig.recipesShare.theme.MAIN,
     fontSize: 32,
   },
   text: {
     fontFamily: 'Pacifico,cursive',
-    color: colors.red[400],
+    color: ProjectsConfig.recipesShare.theme.MAIN,
   },
-  textItem: {
-    flexGrow: 1,
-    display: 'flex',
-    justifyContent: 'flex-start',
-  },
-  urlItem: {
-    paddingLeft: 32,
-    flexGrow: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
+  link: {
+    color: ProjectsConfig.recipesShare.theme.MAIN,
+    '&:hover': {
+      color: ProjectsConfig.recipesShare.theme.LIGHT,
+      textDecoration: 'underline',
+    },
   },
 });
 
 const Header = () => {
   const classes = useStyles();
-  const isUpSM = useIsUpSM();
+  const isSM = useBreakpoint('sm');
 
   return (
-    <Grid container alignItems="center" direction="row-reverse">
-      <Grid
-        item
-        className={classes.urlItem}
-        style={{ alignSelf: 'flex-start' }}
-      >
-        <ProjectURL></ProjectURL>
-      </Grid>
+    <Grid container direction="column">
+      <Grid item container alignItems="center">
+        {isSM && (
+          <Grid item>
+            <i className={`fas fa-book ${classes.icon}`} aria-hidden></i>
+          </Grid>
+        )}
 
-      <Grid item className={classes.textItem}>
-        <Typography
-          variant="h3"
-          className={classes.text}
-          style={{ marginLeft: isUpSM ? 24 : 0 }}
-        >
-          Recipes Share
-        </Typography>
-      </Grid>
-
-      {isUpSM && (
         <Grid item>
-          <i className={`fas fa-book ${classes.icon}`} aria-hidden></i>
+          <Typography
+            variant="h3"
+            className={classes.text}
+            style={{ marginLeft: isSM ? 24 : 0 }}
+          >
+            Recipes Share
+          </Typography>
         </Grid>
-      )}
+      </Grid>
+
+      <Grid item style={{ marginTop: 8 }}>
+        <a
+          href={ProjectsConfig.recipesShare.URL}
+          target="_blank"
+          rel="noreferrer"
+          className={classes.link}
+        >
+          <i>
+            <Typography variant="body1">
+              {ProjectsConfig.recipesShare.URL}
+            </Typography>
+          </i>
+        </a>
+      </Grid>
     </Grid>
   );
 };

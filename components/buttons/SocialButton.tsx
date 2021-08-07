@@ -43,11 +43,11 @@ const SocialButton: FunctionComponent<Props> = ({
       style={{ textDecoration: 'none' }}
     >
       <Grid className={classes.root} container direction="column">
-        <Grid item container justify="center">
+        <Grid item container justifyContent="center">
           <Icon style={{ fontSize: 32 }}>{icon}</Icon>
         </Grid>
 
-        <Grid item container justify="center" style={{ marginTop: 8 }}>
+        <Grid item container justifyContent="center" style={{ marginTop: 8 }}>
           <b>{label}</b>
         </Grid>
       </Grid>

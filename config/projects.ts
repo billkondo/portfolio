@@ -9,6 +9,14 @@ const ProjectsConfig = {
     URL: 'https://www.todotree.page',
     ANONYMOUS_LOGIN: 'https://www.todotree.page/auth/login/anonymous',
   },
+  recipesShare: {
+    NAME: 'Recipes Share',
+    theme: {
+      MAIN: '#ef5350',
+      LIGHT: '#ffcdd0',
+    },
+    URL: 'https://recipes-share.web.app',
+  },
 };
 
 export default ProjectsConfig;

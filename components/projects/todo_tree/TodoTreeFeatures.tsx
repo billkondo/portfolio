@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Button,
   createStyles,
@@ -11,6 +11,7 @@ import {
 import ProjectsConfig from 'config/projects';
 
 import useBreakpoint from 'hooks/useBreakpoint';
+import useTodoTreeTranslations from 'components/translations/useTodoTreeTranslations';
 
 import Picture from './components/Picture';
 import Text from './components/Text';
@@ -42,13 +43,10 @@ const useStyles = makeStyles((theme) =>
         props.isLG ? 0 : theme.spacing(2.5),
     },
     text: {
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(2),
     },
     buttons: {
       marginTop: theme.spacing(4),
-    },
-    color: {
-      color: ProjectsConfig.todoTree.theme.DARK,
     },
     button: {
       textTransform: 'none',
@@ -73,6 +71,14 @@ const useStyles = makeStyles((theme) =>
 );
 
 const TodoTreeFeatures = () => {
+  const {
+    VISUALIZE,
+    TREE_UI,
+    CREATE,
+    COMPLETE,
+    DESCRIPTION,
+    TEST_WITHOUT_ACCOUNT,
+  } = useTodoTreeTranslations();
   const isLG = useBreakpoint('lg');
   const isMD = useBreakpoint('md');
 
@@ -88,7 +94,7 @@ const TodoTreeFeatures = () => {
   const [show, setShow] = useState(true);
 
   const textHeight = useMemo(() => {
-    if (isMD) return 100;
+    if (isMD) return 160;
     return 240;
   }, [isMD]);
 
@@ -96,18 +102,14 @@ const TodoTreeFeatures = () => {
 
   const Images = ['/todo_tree_01.png', '/todo_tree_02.png'];
   const Titles = [
-    <Fragment>
-      <Text variant="h4">Visualize your ToDo's</Text>
-      <Text variant="h4">
-        in a <b className={classes.color}>tree</b> UI
-      </Text>
-    </Fragment>,
-    <Fragment>
-      <Text variant="h4">
-        Create <b className={classes.color}>subtasks</b>
-      </Text>
-      <Text variant="h4">and complete them</Text>
-    </Fragment>,
+    <>
+      <Text variant="h4">{VISUALIZE}</Text>
+      <Text variant="h4">{TREE_UI}</Text>
+    </>,
+    <>
+      <Text variant="h4">{CREATE}</Text>
+      <Text variant="h4">{COMPLETE}</Text>
+    </>,
   ];
 
   useEffect(() => {
@@ -125,14 +127,22 @@ const TodoTreeFeatures = () => {
   return (
     <Grid
       container
-      justify="center"
+      justifyContent="center"
       alignItems="center"
       direction="row-reverse"
     >
       <Grid item md={12} lg={6} className={classes.textItem}>
         <Grid container direction="column">
-          <Grid item container justify={isLG ? 'flex-start' : 'center'}>
-            <div style={{ height: textHeight }}>
+          <Grid item container justifyContent={isLG ? 'flex-start' : 'center'}>
+            <div
+              style={{
+                height: textHeight,
+                display: 'flex',
+                alignItems: 'center',
+                minWidth: 320,
+                justifyContent: isLG ? 'flex-start' : 'center',
+              }}
+            >
               {Titles.map((title, index) => {
                 return (
                   <Grow
@@ -155,33 +165,30 @@ const TodoTreeFeatures = () => {
 
           <Grid item container className={classes.text}>
             <Text variant="h5" textAlign="justify">
-              Manage your tasks in an interactive UI. Break them in smaller
-              subtasks and see how they depend on each other
+              {DESCRIPTION}
             </Text>
           </Grid>
         </Grid>
 
-        <Grid item container className={classes.buttons} alignItems="baseline">
-          <Grid item style={{ flexGrow: 1 }}>
-            <a
-              href={ProjectsConfig.todoTree.URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button className={classes.button} size="large">
-                <b>Get started</b>
-              </Button>
-            </a>
-          </Grid>
-
+        <Grid
+          item
+          container
+          className={classes.buttons}
+          alignItems="baseline"
+          justifyContent="flex-end"
+        >
           <Grid item>
             <a
               href={ProjectsConfig.todoTree.ANONYMOUS_LOGIN}
               target="_blank"
               rel="noreferrer"
             >
-              <Button className={classes.underlineButton} size="large">
-                <b>Test out without an account</b>
+              <Button
+                className={classes.underlineButton}
+                size="large"
+                style={{ padding: 0 }}
+              >
+                <b>{TEST_WITHOUT_ACCOUNT}</b>
               </Button>
             </a>
           </Grid>

@@ -1,0 +1,19 @@
+{
+  "SEND_EMAIL": "Send an email to",
+  "TEXT_ME": "or text me",
+  "YOUR_NAME": "Your name",
+  "YOUR_CONTACT": "Your contact",
+  "MESSAGE": "Message",
+  "SEND_ME": "Send me",
+
+  "NAME_EMPTY": "Name should not be <b>empty</b>",
+  "CONTACT_EMPTY": "Contact should not be <b>empty</b>",
+  "MESSAGE_EMPTY": "Message should not be <b>empty</b>",
+
+  "NAME_TOO_BIG": "Name should not have more than <b>{{limit}}</b> characters",
+  "CONTACT_TOO_BIG": "Contact should not have more than <b>{{limit}}</b> characters",
+  "MESSAGE_TOO_BIG": "Message should not have more than <b>{{limit}}</b> characters",
+
+  "SUCCESS_MESSAGE": "Message was sent successfully",
+  "ERROR_MESSAGE": "Failed to send message"
+}

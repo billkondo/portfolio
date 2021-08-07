@@ -1,5 +1,9 @@
-import { TextField, colors, withStyles } from '@material-ui/core';
 import { FunctionComponent } from 'react';
+import { TextField, colors, withStyles, Grid, Fade } from '@material-ui/core';
+
+import { ContactMeFormError } from 'domain/contact_me/types/ContactMeFormErrors';
+
+import FormErrorText from './FormErrorText';
 
 const black32 = 'rgba(0, 0, 0, 0.32)';
 const black56 = 'rgba(0, 0, 0, 0.56)';
@@ -57,7 +61,7 @@ type Props = {
   value: string;
   onChange: (value: string) => void;
   label: string;
-  error?: string;
+  error?: ContactMeFormError;
   fullWidth?: boolean;
   multiline?: boolean;
 };
@@ -67,20 +71,29 @@ const FormTextField: FunctionComponent<Props> = ({
   label,
   fullWidth = false,
   multiline = false,
-  error = '',
+  error,
 }) => {
   return (
-    <StyledTextField
-      value={value}
-      label={label}
-      variant="outlined"
-      fullWidth={fullWidth}
-      multiline={multiline}
-      onChange={(e) => onChange(e.target.value)}
-      rows={8}
-      error={!!error}
-      helperText={error || ' '}
-    ></StyledTextField>
+    <Grid container direction="column">
+      <Grid item style={{ marginBottom: 8 }}>
+        <StyledTextField
+          value={value}
+          label={label}
+          variant="outlined"
+          fullWidth={fullWidth}
+          multiline={multiline}
+          onChange={(e) => onChange(e.target.value)}
+          rows={8}
+          error={!!error}
+        ></StyledTextField>
+      </Grid>
+
+      {error && (
+        <Grid item container justifyContent="flex-end">
+          <FormErrorText error={error}></FormErrorText>
+        </Grid>
+      )}
+    </Grid>
   );
 };
 

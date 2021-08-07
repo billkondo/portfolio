@@ -1,20 +1,9 @@
-import { FunctionComponent } from 'react';
+import dynamic from 'next/dynamic';
 
-type Props = {
-  height?: number;
-  width?: number;
-};
-const FirebaseIcon: FunctionComponent<Props> = ({
-  height = 24,
-  width = 24,
-}) => {
-  return (
-    <img
-      src="https://img.icons8.com/color/48/000000/firebase.png"
-      style={{ height, width }}
-      alt="Firebase icon"
-    />
-  );
-};
+// Doing dynamic import for this icon because there is a warning
+// complaining about an error during server side rendering
+const FirebaseIconNoSSR = dynamic(() => import('./_FirebaseIcon'), {
+  ssr: false,
+});
 
-export default FirebaseIcon;
+export default FirebaseIconNoSSR;
