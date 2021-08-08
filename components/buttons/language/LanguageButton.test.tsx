@@ -9,6 +9,13 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn(),
 }));
 
+jest.mock('components/translations/useCommonTranslations', () => {
+  return () => ({
+    EN: 'English',
+    PTBR: 'Portuguese (BR)',
+  });
+});
+
 describe('LanguageButton', () => {
   const setup = (locale = Languages.EN) => {
     (useRouter as jest.Mock).mockImplementation(() => ({
