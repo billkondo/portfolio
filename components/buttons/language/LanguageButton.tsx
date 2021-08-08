@@ -31,29 +31,35 @@ const languages = (params: { EN: string; PTBR: string }) => [
   },
 ];
 
+type StylesProps = {
+  USselected: boolean;
+};
 const useStyles = makeStyles((theme) =>
   createStyles({
-    selectedEN: {
-      backgroundColor: colors.red[100],
-    },
-    selectedBR: {
-      backgroundColor: colors.green[100],
+    button: {
+      '&:hover': {
+        backgroundColor: (props: StylesProps) =>
+          props.USselected ? colors.red[100] : colors.green[100],
+      },
     },
   })
 );
 const LanguageButton = () => {
-  const classes = useStyles();
   const { EN, PTBR } = useCommonTranslations();
   const { selectedLanguage, changeLanguage } = useLanguageButton();
+  const USselected = selectedLanguage === Languages.EN;
+  const classes = useStyles({ USselected });
 
   const _languages = useMemo(() => languages({ EN, PTBR }), [EN, PTBR]);
-
-  const USselected = selectedLanguage === Languages.EN;
 
   return (
     <MenuPopover
       renderButton={(onClick) => (
-        <IconButton onClick={onClick} style={{ height: 56, width: 56 }}>
+        <IconButton
+          onClick={onClick}
+          className={classes.button}
+          style={{ height: 56, width: 56 }}
+        >
           <ReactCountryFlag
             countryCode={USselected ? 'US' : 'BR'}
             svg
