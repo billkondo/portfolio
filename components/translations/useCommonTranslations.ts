@@ -5,6 +5,8 @@ const TranslationKeys = [
   'CONTACT_ME',
   'PROJECTS',
 
+  'RESUME',
+
   'EN',
   'PTBR',
 

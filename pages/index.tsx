@@ -3,16 +3,15 @@ import {
   Divider,
   Fade,
   Grid,
-  Grow,
   makeStyles,
 } from '@material-ui/core';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Terminal from 'components/terminal/Terminal';
-import GithubButton from 'components/buttons/GitHubButton';
-import LinkedInButton from 'components/buttons/LinkedInButton';
 
 import Navbar from 'components/navbar/Navbar';
+
+import Links from 'components/links/Links';
 import TodoTree from 'components/projects/todo_tree/TodoTree';
 import RecipesShare from 'components/projects/recipes_share/Main';
 import ContactMe from 'components/contact_me/ContactMe';
@@ -50,25 +49,10 @@ export default function Home() {
             </Grid>
           </Fade>
 
-          <Grid item container style={{ flex: 1 }}></Grid>
+          <Grid item style={{ flexGrow: 1 }}></Grid>
 
-          <Grid
-            item
-            container
-            justifyContent="center"
-            style={{ marginTop: 24 }}
-          >
-            <Grow in={true}>
-              <Grid item>
-                <GithubButton></GithubButton>
-              </Grid>
-            </Grow>
-
-            <Grow in={true}>
-              <Grid item style={{ marginLeft: 40 }}>
-                <LinkedInButton></LinkedInButton>
-              </Grid>
-            </Grow>
+          <Grid item container style={{ marginBottom: 40, marginTop: 40 }}>
+            <Links></Links>
           </Grid>
         </Grid>
 
