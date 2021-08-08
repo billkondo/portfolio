@@ -46,7 +46,7 @@ const Header = () => {
         </Grid>
       </Grid>
 
-      <Grid item style={{ marginTop: 8 }}>
+      <Grid item container style={{ marginTop: 8 }}>
         <a
           href={ProjectsConfig.recipesShare.URL}
           target="_blank"
